@@ -1,9 +1,11 @@
 "use client"
 
+import { createAccount } from "@/actions/create-account-action"
+
 export default function RegisterForm() {
   console.log('Desde register form')
   return (
-    <form
+    <form action={createAccount}
       className="mt-14 space-y-5"
       noValidate
     >

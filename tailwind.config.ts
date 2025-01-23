@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+
+        "auth":"url('/grafico.svg')"
+
+      },
+      backgroundSize:{
+        '30':"30rem"
+      }
     },
   },
   plugins: [],
