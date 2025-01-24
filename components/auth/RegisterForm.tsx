@@ -1,11 +1,14 @@
 "use client"
 
 import { createAccount } from "@/actions/create-account-action"
+import { useFormState } from "react-dom"
 
 export default function RegisterForm() {
-  console.log('Desde register form')
+  const [state, dispatch] = useFormState(createAccount,{
+    errors: []
+  })
   return (
-    <form action={createAccount}
+    <form action={dispatch}
       className="mt-14 space-y-5"
       noValidate
     >
