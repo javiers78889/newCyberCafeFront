@@ -11,9 +11,7 @@ export default function RegisterForm() {
   const [state, dispatch] = useFormState(createAccount, {
     errors: []
   })
-  const iterar : object = state
   console.log(state)
-
   return (
     <form action={dispatch}
       className="mt-14 space-y-5"
