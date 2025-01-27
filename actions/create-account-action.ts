@@ -1,15 +1,14 @@
 "use server"
 
 
-import { RegisterSchema } from "@/src/schemas"
+import { ErrorResponseSchema, RegisterSchema, SuccessSchema } from "@/src/schemas"
 
 type ActionType = {
-    errors: String[]
+    errors: String[],
+    success: string
 }
+
 export async function createAccount(prevState: ActionType, formData: FormData) {
-
-
-    console.log(formData.get('email'))
 
     const RegisterData = {
         email: formData.get('email'),
@@ -22,15 +21,12 @@ export async function createAccount(prevState: ActionType, formData: FormData) {
     //validar 
 
     const register = RegisterSchema.safeParse(RegisterData)
-
-    if(register.error){
-        
-    }
-    const errors = register.error?.errors.map(errores => errores.message)
-
-
     if (!register.success) {
-        return errors;
+        const errors = register.error.errors.map(errores => errores.message)
+        return {
+            errors,
+            success: prevState.success
+        }
     }
     // registrar usuario
 
@@ -46,8 +42,14 @@ export async function createAccount(prevState: ActionType, formData: FormData) {
             password: register.data.password
         })
     })
+
     const json = await req.json()
-    return json
+    if (req.status === 409) {
+        const error = ErrorResponseSchema.parse(json)
+        return { errors: [error.error], success: prevState.success }
+    }
+    const response = SuccessSchema.parse(json)
+    return { errors: prevState.errors, success: response }
 
 
 

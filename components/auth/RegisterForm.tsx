@@ -1,22 +1,25 @@
 "use client"
 
 import { createAccount } from "@/actions/create-account-action"
-import { stat } from "fs"
 import { useFormState } from "react-dom"
+import ErrorMessage from "../ui/ErrorMessage"
+import SuccessMessage from "../ui/SuccessMessage"
 
 export default function RegisterForm() {
-  const validate = {
-    errors: []
-  }
   const [state, dispatch] = useFormState(createAccount, {
-    errors: []
+    errors: [],
+    success: ''
   })
-  console.log(state)
+
   return (
     <form action={dispatch}
       className="mt-14 space-y-5"
       noValidate
     >
+      {state.errors.map(n => <ErrorMessage>{n}</ErrorMessage>)}
+      {state.success ? (<SuccessMessage>{state.success}</SuccessMessage>) : ('')}
+
+
       <div className="flex flex-col gap-2">
         <label
           className="font-bold text-2xl"
