@@ -8,7 +8,7 @@ type ActionType = {
     success: string
 }
 
-export async function createAccount(prevState: ActionType, formData: FormData) {
+export const createAccount = async (prevState: ActionType, formData: FormData) => {
 
     const RegisterData = {
         email: formData.get('email'),
@@ -44,12 +44,14 @@ export async function createAccount(prevState: ActionType, formData: FormData) {
     })
 
     const json = await req.json()
+    console.log(json)
     if (req.status === 409) {
         const error = ErrorResponseSchema.parse(json)
-        return { errors: [error.error], success: prevState.success }
+
+        return { errors: [error.error], success: '' }
     }
     const response = SuccessSchema.parse(json)
-    return { errors: prevState.errors, success: response }
+    return { errors: [], success: response }
 
 
 
