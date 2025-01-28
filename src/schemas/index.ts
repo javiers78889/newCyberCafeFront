@@ -15,4 +15,4 @@ export const ErrorResponseSchema = z.object({
     error: z.string()
 })
 
-export const ConfirmAccountSchema = z.string().min(6,{message:'Token no valido'}).max(6, {message:'Token no valido'})
+export const ConfirmAccountSchema = z.string().min(6,{message:'Token no valido, muy corto'}).max(6, {message:'Token no valido'})
