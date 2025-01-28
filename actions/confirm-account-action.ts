@@ -1,6 +1,6 @@
 "use server"
 
-import { ConfirmAccountSchema, ErrorResponseSchema } from "@/src/schemas"
+import { ConfirmAccountSchema, ErrorResponseSchema, SuccessSchema } from "@/src/schemas"
 
 type ActionStateType = {
     error: string[],
@@ -28,13 +28,14 @@ export const ConfirmAccount = async (token: string, prevstate: ActionStateType) 
         body: JSON.stringify({ token: auth.data })
     })
     const json = await req.json()
-    if (req.status === 401) {
+    if (!req.ok) {
         const error = ErrorResponseSchema.parse(json)
         return {
             error: [error.error],
             success: ''
         }
     }
+    const success = SuccessSchema.parse(json)
 
-    return { error: [], success: json }
+    return { error: [], success }
 }

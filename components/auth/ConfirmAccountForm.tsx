@@ -1,13 +1,12 @@
 "use client"
 import { ConfirmAccount } from '@/actions/confirm-account-action'
 import { PinInput, PinInputField } from '@chakra-ui/pin-input'
-import { stat } from 'fs'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useFormState } from 'react-dom'
-import SuccessMessage from '../ui/SuccessMessage'
-import ErrorMessage from '../ui/ErrorMessage'
-import { toast, Toaster } from 'sonner'
+import { Bounce, toast } from 'react-toastify'
 export default function ConfirmAccountForm() {
+    const router = useRouter()
     const [isComplete, setIscomplete] = useState(false)
     const [token, setToken] = useState("")
     const confirmAccountWithToken = ConfirmAccount.bind(null, token) // enviar el token al use server
@@ -26,17 +25,24 @@ export default function ConfirmAccountForm() {
     }
 
     const Complete = () => {
-        setIscomplete(true)
+        setIscomplete(!isComplete)
     }
+    useEffect(() => {
+        if (state.success) {
+            toast.success(state.success, {onClose: ()=>{
+                router.push('/auth/login')
+            }})
+        } else {
+            state.error.forEach(n =>{
+                toast.error(n)
+            })
+          
+        }
+    }, [state])
 
-    if (state.success) {
-        toast.success(state.success)
-    } else {
-        toast.error(state.error)
-    }
     return (
         <div className='flex justify-center flex-col'>
-            <Toaster position="top-right" richColors />
+
             <div className='flex justify-center gap-5 my-10'>
                 <PinInput
                     value={token}
