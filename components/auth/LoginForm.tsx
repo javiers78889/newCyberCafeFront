@@ -1,10 +1,32 @@
 "use client"
 
+import { Login } from "@/actions/autenticate-user-action"
+import { useRef } from "react"
+import { useFormState } from "react-dom"
+import { toast } from "react-toastify"
+
 export default function LoginForm() {
+    const ref = useRef<HTMLFormElement>(null) // evita que se recargue la pantalla al hacer submit
+
+    const [state, dispatch]= useFormState(Login, {
+        error:[],
+        success:''
+    })
+
+    if(state.error){
+        const errores= state.error.map(errores =>{
+
+            toast.error(errores)
+
+
+        })
+    }
 
     return (
         <>
             <form
+                action={dispatch}
+                ref={ref}
                 className="mt-14 space-y-5"
                 noValidate
             >

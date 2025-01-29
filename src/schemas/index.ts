@@ -16,3 +16,8 @@ export const ErrorResponseSchema = z.object({
 })
 
 export const ConfirmAccountSchema = z.string().min(6,{message:'Token no valido, muy corto'}).max(6, {message:'Token no valido'})
+
+export const LoginSchema = z.object({
+    email: z.string().min(1,{message:'El email es Obligatorio para iniciar sesion'}).email({message:'No es un formato válido para email'}),
+    password: z.string()
+})
