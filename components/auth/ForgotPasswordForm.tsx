@@ -37,7 +37,7 @@ export default function ForgotPasswordForm() {
             <input
                 type="submit"
                 value='Enviar Instrucciones'
-                className="bg-purple-950 hover:bg-purple-800 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer "
+                className="bg-red-600 hover:bg-red-800 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer "
             />
         </form>
     )

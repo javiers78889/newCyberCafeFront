@@ -84,7 +84,7 @@ export default function RegisterForm() {
       <input
         type="submit"
         value='Registrarme'
-        className="bg-purple-950 hover:bg-purple-800 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer block"
+        className="bg-red-600 hover:bg-red-800 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer block"
       />
     </form>
   )

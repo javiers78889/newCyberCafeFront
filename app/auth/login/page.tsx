@@ -13,8 +13,8 @@ export default function page() {
 
     return (
         <>
-            <h1 className="font-black text-6xl text-purple-950">Inicia Sesión</h1>
-            <p className="text-3xl font-bold">y controla tus <span className="text-amber-500">finanzas</span></p>
+            <h1 className="font-black text-6xl text-red-500">Inicia Sesión</h1>
+            <p className="text-3xl font-bold">y controla tus <span className="text-amber-500">Facturas</span></p>
             <LoginForm />
             <nav className="mt-10 flex flex-col space-y-4">
 
