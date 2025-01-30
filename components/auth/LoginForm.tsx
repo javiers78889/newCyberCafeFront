@@ -1,25 +1,32 @@
 "use client"
 
 import { Login } from "@/actions/autenticate-user-action"
+import { useRouter } from "next/navigation"
 import { useRef } from "react"
 import { useFormState } from "react-dom"
 import { toast } from "react-toastify"
 
 export default function LoginForm() {
+    const router = useRouter()
     const ref = useRef<HTMLFormElement>(null) // evita que se recargue la pantalla al hacer submit
 
-    const [state, dispatch]= useFormState(Login, {
-        error:[],
-        success:''
+    const [state, dispatch] = useFormState(Login, {
+        error: [],
+        success: ''
     })
 
-    if(state.error){
-        const errores= state.error.map(errores =>{
+    if (state.error) {
+        const errores = state.error.map(errores => {
 
             toast.error(errores)
 
 
         })
+    }
+
+    if (state.success) {
+
+        toast.success('validado', { onClose: () => { router.push('/user/dashboard') } })
     }
 
     return (
