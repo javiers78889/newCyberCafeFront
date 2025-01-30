@@ -2,7 +2,7 @@
 
 import { Login } from "@/actions/autenticate-user-action"
 import { useRouter } from "next/navigation"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useFormState } from "react-dom"
 import { toast } from "react-toastify"
 
@@ -15,20 +15,20 @@ export default function LoginForm() {
         success: ''
     })
 
-    if (state.error) {
-        const errores = state.error.map(errores => {
+    useEffect(() => {
+        if (!state.success) {
+            const errores = state.error.map(errores => {
 
-            toast.error(errores)
+               return toast.error(errores)
 
 
-        })
-    }
+            })
+        }else{
+            
+            toast.success('validado', { onClose: () => { router.push('/admin') } })
+        }
 
-    if (state.success) {
-
-        toast.success('validado', { onClose: () => { router.push('/user/dashboard') } })
-    }
-
+    }, [state])
     return (
         <>
             <form

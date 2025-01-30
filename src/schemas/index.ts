@@ -21,3 +21,11 @@ export const LoginSchema = z.object({
     email: z.string().min(1,{message:'El email es Obligatorio para iniciar sesion'}).email({message:'No es un formato válido para email'}),
     password: z.string().min(1,{message:'El Password no puede ir vacío'})
 })
+
+export const UserSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string().email()
+})
+
+export type User = z.infer<typeof UserSchema>

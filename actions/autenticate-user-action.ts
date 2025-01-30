@@ -1,8 +1,8 @@
 "use server"
 
 import { ErrorResponseSchema, LoginSchema, SuccessSchema } from "@/src/schemas"
-import { error } from "console"
-import { json } from "stream/consumers"
+import { cookies } from "next/headers"
+
 
 type LoginType = {
     error: string[],
@@ -37,20 +37,19 @@ export const Login = async (prevState: LoginType, formData: FormData) => {
     })
 
     const json = await req.json()
-    if(req.status === 403){
+    if (!req.ok) {
         const errores = ErrorResponseSchema.parse(json)
         return {
             error: [errores.error],
-            success:''
-        }
-    }else if(req.status === 409){
-        const errores = ErrorResponseSchema.parse(json)
-        return {
-            error: [errores.error],
-            success:''
+            success: ''
         }
     }
-
+    cookies().set({
+        name: 'jwt',
+        value: json,
+        httpOnly: true,
+        path: '/',
+    })
     return {
         error: [],
         success: json
