@@ -18,14 +18,14 @@ export const ErrorResponseSchema = z.object({
 export const ConfirmAccountSchema = z.string().min(6, { message: 'Token no valido, muy corto' }).max(6, { message: 'Token no valido' })
 
 export const LoginSchema = z.object({
-    email: z.string().min(1, { message: 'El email es Obligatorio para iniciar sesion' }).email({ message: 'No es un formato válido para email' }),
+    correo: z.string().min(1, { message: 'El email es Obligatorio para iniciar sesion' }).email({ message: 'No es un formato válido para email' }),
     password: z.string().min(1, { message: 'El Password no puede ir vacío' })
 })
 
 export const UserSchema = z.object({
     id: z.number(),
-    name: z.string(),
-    email: z.string().email()
+    nombre: z.string(),
+    correo: z.string().email()
 })
 
 export type User = z.infer<typeof UserSchema>

@@ -12,7 +12,7 @@ export default async function AdminLayout({
   const { user } = await verifySession()
   return (
     <>
-      <header className='bg-purple-950 py-5'>
+      <header className='bg-red-600 py-5'>
         <div className='max-w-5xl mx-auto flex flex-col lg:flex-row justify-between items-center'>
           <div className='w-96'>
             <Link href={'/admin'}>

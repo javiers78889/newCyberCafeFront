@@ -43,11 +43,11 @@ export default function LoginForm() {
                     >Email</label>
 
                     <input
-                        id="email"
+                        id="correo"
                         type="email"
                         placeholder="Email de Registro"
                         className="w-full border border-gray-300 p-3 rounded-lg"
-                        name="email"
+                        name="correo"
                     />
                 </div>
 

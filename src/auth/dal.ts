@@ -12,10 +12,9 @@ export const verifySession = cache(async () => {
         redirect('/auth/login')
     }
 
-    const url = `${process.env.API_URL}/auth/user`
+    const url = `${process.env.API_URL}/users`
 
     const req = await fetch(url, {
-        method: 'GET',
         headers: {
             Authorization: `Bearer ${jwt}`
         }
@@ -26,6 +25,7 @@ export const verifySession = cache(async () => {
     const result = UserSchema.safeParse(session)
 
     if (!result.success) {
+        console.log('No entro')
         redirect('/auth/login')
     } else {
 

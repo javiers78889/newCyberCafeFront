@@ -10,24 +10,25 @@ type LoginType = {
 }
 
 export const Login = async (prevState: LoginType, formData: FormData) => {
-    const url = `${process.env.API_URL}/auth/login`
-
+    const url = `${process.env.API_URL}/login`
 
     const LoginData = {
-        email: formData.get('email'),
+        correo: formData.get('correo'),
         password: formData.get('password')
     }
 
     const DatosValidados = LoginSchema.safeParse(LoginData)
-
+    console.log(DatosValidados.data)
 
     if (DatosValidados.error) {
         const error = DatosValidados.error.errors.map(errores => errores.message)
+        
         return {
             error,
             success: prevState.success
         }
     }
+    
     const req = await fetch(url, {
         method: 'POST',
         headers: {
@@ -37,6 +38,7 @@ export const Login = async (prevState: LoginType, formData: FormData) => {
     })
 
     const json = await req.json()
+    console.log(json)
     if (!req.ok) {
         const errores = ErrorResponseSchema.parse(json)
         return {
