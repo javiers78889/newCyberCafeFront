@@ -23,6 +23,7 @@ export const verifySession = cache(async () => {
     const session = await req.json()
 
     const result = UserSchema.safeParse(session)
+    console.log(result.error)
 
     if (!result.success) {
         console.log('No entro')

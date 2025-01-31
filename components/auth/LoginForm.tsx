@@ -40,14 +40,14 @@ export default function LoginForm() {
                 <div className="flex flex-col gap-2">
                     <label
                         className="font-bold text-2xl"
-                    >Email</label>
+                    >Usuario</label>
 
                     <input
-                        id="correo"
-                        type="email"
+                        id="usuario"
+                        type="text"
                         placeholder="Email de Registro"
                         className="w-full border border-gray-300 p-3 rounded-lg"
-                        name="correo"
+                        name="usuario"
                     />
                 </div>
 

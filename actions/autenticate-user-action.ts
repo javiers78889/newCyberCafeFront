@@ -13,12 +13,11 @@ export const Login = async (prevState: LoginType, formData: FormData) => {
     const url = `${process.env.API_URL}/login`
 
     const LoginData = {
-        correo: formData.get('correo'),
+        usuario: formData.get('usuario'),
         password: formData.get('password')
     }
 
     const DatosValidados = LoginSchema.safeParse(LoginData)
-    console.log(DatosValidados.data)
 
     if (DatosValidados.error) {
         const error = DatosValidados.error.errors.map(errores => errores.message)
