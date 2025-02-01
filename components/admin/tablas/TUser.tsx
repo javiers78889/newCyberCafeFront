@@ -11,6 +11,8 @@ export default function TUser() {
     errors: [],
     success: [],
   });
+
+  const [ingreso, setIngreso]= useState(0)
   const [currentPage, setCurrentPage] = useState(0);  // Usamos el índice de la página (0 es la primera)
   const itemsPerPage = 8;
 
@@ -19,7 +21,12 @@ export default function TUser() {
   }, []);
 
   useEffect(() => {
-    console.log(state.success);
+    let total = 0
+    const dinero = state.success.map(n => {
+     total = total + n.precio
+    })
+    setIngreso(total)
+    console.log(total)
   }, [state]);
 
   // Calcular los elementos a mostrar en la página actual
@@ -34,7 +41,11 @@ export default function TUser() {
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
+
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <caption className="p-5 font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+            <h3 className="text-lg font-black text-black uppercase">Ha registrado  <span className="text-red-500">{state.success.length}</span> Paquetes  | <span className="font-black pl-5">Ingreso Generado <span className="text-red-500">${ingreso}</span></span> </h3>
+          </caption>
           <thead className="text-sm font-black text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">id</th>
@@ -98,18 +109,20 @@ export default function TUser() {
         </table>
 
         {/* Paginación con react-paginate */}
-        <ReactPaginate className="font-bold text-lg flex p-5 justify-center"
-          pageCount={Math.ceil(state.success.length / itemsPerPage)}  // Número total de páginas
-          pageRangeDisplayed={3}  // Cuántas páginas mostrar en los controles
-          marginPagesDisplayed={1}  // Cuántas páginas mostrar en los extremos
-          onPageChange={handlePageChange}  // Cambiar la página
-          containerClassName="flex justify-center mt-4"
-          pageClassName="mx-2"
-          previousClassName="mx-2"
-          nextClassName="mx-2 text-red-500"
-          activeClassName="text-blue-600"
-          disabledClassName="text-gray-400"
-        />
+        <div className=" w-full">
+          <ReactPaginate className="font-bold text-lg flex p-5 justify-center bg-amber-400"
+            pageCount={Math.ceil(state.success.length / itemsPerPage)}  // Número total de páginas
+            pageRangeDisplayed={3}  // Cuántas páginas mostrar en los controles
+            marginPagesDisplayed={1}  // Cuántas páginas mostrar en los extremos
+            onPageChange={handlePageChange}  // Cambiar la página
+            containerClassName="flex justify-center mt-4 "
+            pageClassName="mx-2 "
+            previousClassName="mx-2 text-white"
+            nextClassName="mx-2 text-red-500"
+            activeClassName="text-blue-600"
+            disabledClassName="text-gray-400"
+          />
+        </div>
       </div>
     </>
   );

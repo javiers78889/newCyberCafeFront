@@ -1,7 +1,7 @@
 "use client"
 import { getPaquetes } from "@/actions/get-paquetes-action";
 import { verifySession } from "@/src/auth/dal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 type User = {
   id: number;
@@ -16,14 +16,14 @@ export default function Tabla({ user }: { user: User }) {
     errors: [],
     success: []
   })
-
+  const[pendientes, setPendientes]= useState({})
 
   useEffect(() => {
     dispatch()
   }, [])
 
   useEffect(() => {
-    console.log(state.success)
+   
   }, [state])
 
 
@@ -33,7 +33,7 @@ export default function Tabla({ user }: { user: User }) {
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <caption className="p-5 font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-
+            <h3 className="text-lg font-black text-black uppercase">Usted Cuenta con <span className="text-red-500">{state.success.length}</span> Paquetes </h3>
           </caption>
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -55,7 +55,7 @@ export default function Tabla({ user }: { user: User }) {
           <tbody>
             {state.success.length < 1 ? (
               <tr>
-                <td className="px-6 py-4 text-center">No hay paquetes Registrados</td>
+                <td className="px-6 py-4 text-center bg-white ">No hay paquetes Registrados</td>
               </tr>
             ) : (
               state.success.map(product => {
@@ -70,20 +70,7 @@ export default function Tabla({ user }: { user: User }) {
                     <td className="px-6 py-4">{product.precio}</td>
                     <td className="px-6 py-4">{product.tarifas}</td>
                     <td className="px-6 py-4">{product.status}</td>
-                    {user.id === 1 ? (
-                      <>
-                        <td className="px-6 py-4 text-right">
-                          <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                            Edit
-                          </a>
-                        </td>
-                        <td className="px-6 py-4 text-right">
-                          <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                            Entregar
-                          </a>
-                        </td>
-                      </>
-                    ) : ('')}
+                   
                   </tr>
                 );
               })

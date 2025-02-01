@@ -1,18 +1,19 @@
 import React, { use } from 'react'
 import AdminDirection from '../AdminDirection'
 import Link from 'next/link'
+import Logo from '@/components/ui/Logo';
 type TUser = {
     id: number;
     nombre: string;
 
 }
 export default function Users({ user }: { user: TUser }) {
-    console.log(user )
+    console.log(user)
     return (
         <>
-            <div className='flex flex-col-reverse md:flex-row md:justify-between items-center shadow-md p-5'>
-                <div className='w-full md:w-auto'>
-                    <h1 className="font-black text-4xl text-red-600 my-5">Mis Paquetes</h1>
+            <div className='flex flex-col-reverse md:flex-row md:justify-between items-center shadow-md p-5 bg-white'>
+                <div className='w-full md:w-auto '>
+                    <h1 className="font-black text-4xl  my-5">Mis <span className='text-red-600'>Paquetes</span></h1>
                     <p className="text-xl font-bold">Observa y Verifica tus {''}
                         <span className="text-amber-500">Paquetes</span>
                     </p>
@@ -28,6 +29,13 @@ export default function Users({ user }: { user: TUser }) {
             <div className='flex flex-col-reverse md:flex-row  lg: justify-center items-center'>
                 <AdminDirection user={user} />
 
+            </div>
+
+            <div className='flex flex-col-reverse md:flex-row justify-center items-center  p-5 w-full '>
+                <a href={'https://wa.me/+50765474870'} className='w-52  bg-red-600 shadow-md  rounded-xl hover:bg-green-400'>
+                    <Logo />
+                    <p className='text-center font-bold'>Chat de whatsapp</p>
+                </a>
             </div>
         </>
     )

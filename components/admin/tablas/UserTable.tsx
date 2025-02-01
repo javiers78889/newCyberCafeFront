@@ -36,8 +36,9 @@ export default function UserTable() {
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
-        <div className="p-5  bg-gray-50 dark:bg-gray-700">
+        <div className="p-5  bg-gray-50 dark:bg-gray-700 flex gap-5 items-center">
           <input type="text" className="border rounded-lg p-2" placeholder="Filtre por nombre" />
+          <h3 className="font-bold text-lg uppercase">Tienes <span className="text-red-500">{state.success.length}</span> Usuarios</h3>
         </div>
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-sm font-black text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -93,18 +94,20 @@ export default function UserTable() {
         </table>
 
         {/* Paginación con react-paginate */}
-        <ReactPaginate className="font-bold text-lg flex p-5 justify-center"
-          pageCount={Math.ceil(state.success.length / itemsPerPage)}  // Número total de páginas
-          pageRangeDisplayed={3}  // Cuántas páginas mostrar en los controles
-          marginPagesDisplayed={1}  // Cuántas páginas mostrar en los extremos
-          onPageChange={handlePageChange}  // Cambiar la página
-          containerClassName="flex justify-center mt-4"
-          pageClassName="mx-2"
-          previousClassName="mx-2"
-          nextClassName="mx-2 text-red-500"
-          activeClassName="text-blue-600"
-          disabledClassName="text-gray-400"
-        />
+        <div className=" bg-amber-400 w-full">
+          <ReactPaginate className="font-bold text-lg flex p-5 justify-center "
+            pageCount={Math.ceil(state.success.length / itemsPerPage)}  // Número total de páginas
+            pageRangeDisplayed={3}  // Cuántas páginas mostrar en los controles
+            marginPagesDisplayed={1}  // Cuántas páginas mostrar en los extremos
+            onPageChange={handlePageChange}  // Cambiar la página
+            containerClassName="flex justify-center mt-4"
+            pageClassName="mx-2"
+            previousClassName="mx-2 text-white"
+            nextClassName="mx-2 text-red-500"
+            activeClassName="text-blue-600"
+            disabledClassName="text-gray-400"
+          />
+        </div>
       </div>
     </>
   );

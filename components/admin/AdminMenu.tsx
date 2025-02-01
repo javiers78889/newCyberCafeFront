@@ -31,10 +31,6 @@ export default function AdminMenu({user}:{user:User}) {
                 href='/admin/profile/settings'
                 className='block p-2 hover:text-purple-950'
             >Mi Perfil</Link>
-            <Link
-                href='/admin'
-                className='block p-2 hover:text-purple-950'
-            >Mis Presupuestos</Link>
             <button
                 className='block p-2 hover:text-purple-950'
                 type='button'
