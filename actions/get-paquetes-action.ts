@@ -22,13 +22,14 @@ export const getPaquetes = async (): Promise<ActionType> => {
 
     const json = await req.json()
 
-    const validar = getUserSchema.parse(json.data)
+   
 
     if (!req.ok) {
         const error = ErrorResponseSchema.parse(json)
 
         return { errors: [error.error], success: [] }
     }
+    const validar = getUserSchema.parse(json.data)
     const DataSuccess = validar.map(n => ({
         id: n.id,
         pago: n.pago,

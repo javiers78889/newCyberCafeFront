@@ -51,3 +51,33 @@ export const getUserSchema = z.array(
 )
 
 export type getUsers = z.infer<typeof getUserSchema>
+
+
+export const UsuariosSchema = z.array(
+    z.object({
+        id: z.number(),
+        usuario: z.string().min(1, { message: 'Dato no esperado' }),
+        contraseña: z.string().min(1, { message: 'Dato no esperado' }),
+        isAuth: z.boolean(),
+        nombre: z.string().min(1, { message: 'Dato no esperado' }),
+        plan: z.string().min(1, { message: 'Dato no esperado' }),
+        telefono: z.string().min(1, { message: 'Dato no esperado' }),
+        correo: z.string().email({message:'Correo no valido'}).optional().nullable(),
+        fechaNacimiento: z.date().optional().nullable()
+    })
+
+
+)
+
+export const UDataSchema = z.array(
+    z.object({
+        id: z.number(),
+        usuario: z.string().min(1, { message: 'Dato no esperado' }),
+        contraseña: z.string().min(1, { message: 'Dato no esperado' }),
+        nombre: z.string().min(1, { message: 'Dato no esperado' }),
+        telefono: z.string().min(1, { message: 'Dato no esperado' }),
+        correo: z.string().email({ message: 'Correo no valido' }).optional().nullable()
+    })
+);
+
+export type Usuarios = z.infer<typeof UDataSchema>

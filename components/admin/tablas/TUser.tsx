@@ -1,15 +1,13 @@
 "use client"
-
-import { getUsers } from "@/actions/get-users-action";
+import { getPaquetesAdmin } from "@/actions/get-admin-paquetes-action";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import ReactPaginate from "react-paginate";
 
 
 
-
-export default function UserTable() {
-  const [state, dispatch] = useFormState(getUsers, {
+export default function TUser() {
+  const [state, dispatch] = useFormState(getPaquetesAdmin, {
     errors: [],
     success: [],
   });
@@ -36,26 +34,25 @@ export default function UserTable() {
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
-        <div className="p-5  bg-gray-50 dark:bg-gray-700">
-          <input type="text" className="border rounded-lg p-2" placeholder="Filtre por nombre" />
-        </div>
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-sm font-black text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">id</th>
               <th scope="col" className="px-6 py-3">Usuario</th>
-              <th scope="col" className="px-6 py-3">contrasena</th>
-              <th scope="col" className="px-6 py-3">nombre</th>
-              <th scope="col" className="px-6 py-3">Telefono</th>
-              <th scope="col" className="px-6 py-3">Correo</th>
+              <th scope="col" className="px-6 py-3">Tracking</th>
+              <th scope="col" className="px-6 py-3">Peso</th>
+              <th scope="col" className="px-6 py-3">Precio</th>
+              <th scope="col" className="px-6 py-3">Tarifa</th>
+              <th scope="col" className="px-6 py-3">Status</th>
               <th scope="col" className="px-6 py-3">Acciones</th>
+              <th scope="col" className="px-6 py-3"></th>
             </tr>
           </thead>
           <tbody>
             {state.success.length < 1 ? (
               <tr>
                 <td colSpan={8} className="px-6 py-4 text-center">
-                  No hay Usuarios Registrados
+                  No hay paquetes Registrados
                 </td>
               </tr>
             ) : (
@@ -72,10 +69,11 @@ export default function UserTable() {
                     >
                       {product.usuario}
                     </th>
-                    <td className="px-6 py-4">{product.contraseña}</td>
-                    <td className="px-6 py-4">{product.nombre}</td>
-                    <td className="px-6 py-4">{product.telefono}</td>
-                    <td className="px-6 py-4">{product.correo}</td>
+                    <td className="px-6 py-4">{product.tracking}</td>
+                    <td className="px-6 py-4">{product.peso}</td>
+                    <td className="px-6 py-4">{product.precio}</td>
+                    <td className="px-6 py-4">{product.tarifas}</td>
+                    <td className="px-6 py-4">{product.status}</td>
                     <td className="px-6 py-4 text-right">
                       <a
                         href="#"
@@ -84,7 +82,14 @@ export default function UserTable() {
                         Edit
                       </a>
                     </td>
-
+                    <td className="px-6 py-4 text-right">
+                      <a
+                        href="#"
+                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      >
+                        Entregar
+                      </a>
+                    </td>
                   </tr>
                 );
               })

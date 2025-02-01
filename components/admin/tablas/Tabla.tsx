@@ -33,7 +33,6 @@ export default function Tabla({ user }: { user: User }) {
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <caption className="p-5 font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-            {user.id === 1 ? (<button className="text-sm border p-2 rounded-lg ">Crear Paquete</button>) : ('')}
 
           </caption>
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -71,16 +70,20 @@ export default function Tabla({ user }: { user: User }) {
                     <td className="px-6 py-4">{product.precio}</td>
                     <td className="px-6 py-4">{product.tarifas}</td>
                     <td className="px-6 py-4">{product.status}</td>
-                    <td className="px-6 py-4 text-right">
-                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                        Edit
-                      </a>
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                        Entregar
-                      </a>
-                    </td>
+                    {user.id === 1 ? (
+                      <>
+                        <td className="px-6 py-4 text-right">
+                          <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            Edit
+                          </a>
+                        </td>
+                        <td className="px-6 py-4 text-right">
+                          <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            Entregar
+                          </a>
+                        </td>
+                      </>
+                    ) : ('')}
                   </tr>
                 );
               })
