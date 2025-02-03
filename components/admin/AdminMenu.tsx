@@ -28,7 +28,11 @@ export default function AdminMenu({user}:{user:User}) {
           <div className="w-full lg:w-56 shrink rounded-xl bg-white p-4 text-sm font-semibold leading-6 text-gray-900 shadow-lg ring-1 ring-gray-900/5">
             <p className='text-center'>Hola: {user.nombre} </p>
             <Link
-                href='/admin/profile/settings'
+                href='/admin'
+                className='block p-2 hover:text-purple-950'
+            >Incio</Link>
+            <Link
+                href='/admin/perfil'
                 className='block p-2 hover:text-purple-950'
             >Mi Perfil</Link>
             <button

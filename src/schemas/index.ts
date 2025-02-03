@@ -2,10 +2,11 @@ import { z } from 'zod'
 
 
 export const RegisterSchema = z.object({
-    email: z.string().min(1, { message: 'El email es obligatorio' }).email({ message: 'Email no válido' }),
-    name: z.string().min(1, { message: 'El nombre no puede ir vacío' }),
-    password: z.string().min(8, { message: 'El password debe tener mínimo 8 carácteres' }),
-    password_confirmation: z.string()
+    nombre: z.string({message:'ingrese un nombre'}).min(1, { message: 'El nombre no puede ir vacío' }),
+    correo: z.string({message:'ingrese un correo'}).min(1, { message: 'El email es obligatorio' }).email({ message: 'Email no válido' }),
+    telefono: z.string({message:'ingrese un telefono'}).min(1,{message:'telefono no valido'}),
+    password: z.string({message:'ingrese un password'}).min(8, { message: 'El password debe tener mínimo 8 carácteres' }),
+    password_confirmation: z.string({message:'No ha confirmado el password'}).min(1,{message:'No ha confirmado el password'})
 
 }).refine((data) => data.password === data.password_confirmation, { message: 'Los password no son iguales', path: ['password_confirmation'] })
 
@@ -81,3 +82,19 @@ export const UDataSchema = z.array(
 );
 
 export type Usuarios = z.infer<typeof UDataSchema>
+
+
+export const PaquetesSchema = z.object({
+
+    usuario: z.string().min(1,{message:'Usuario no valido'}),
+    tracking: z.string().min(1,{message:'Tracking no valido'}),
+    peso: z.number({message:'El peso debe ser numerico'}).min(1,{message:'El peso debe ser numerico'}),
+    plan: z.string({message:'Elija un plan'}).min(1,{message:'plan invalido'})
+}).refine(data => data.plan === 'aereo' || data.plan === 'maritimo')
+
+
+export const editPerfilSchema = z.object({
+    nombre: z.string().min(1,{message:'Nombre invalido'}),
+    correo:z.string().email({message:'Correo no valido'}),
+    correo_confirm: z.string().email({message:'Correo no valido'})
+}).refine(data=> data.correo === data.correo_confirm,{message:'los correos no coinciden'})

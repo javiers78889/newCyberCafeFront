@@ -24,7 +24,9 @@ export default function LoginForm() {
 
             })
         }else{
-            
+            if (state.success) {
+                ref.current?.reset()
+              }
             toast.success('validado', { onClose: () => { router.push('/admin') } })
         }
 

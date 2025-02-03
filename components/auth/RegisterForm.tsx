@@ -5,6 +5,8 @@ import { useFormState } from "react-dom"
 import ErrorMessage from "../ui/ErrorMessage"
 import SuccessMessage from "../ui/SuccessMessage"
 import { useEffect, useRef } from "react"
+import { toast } from "react-toastify"
+import { stat } from "fs"
 
 export default function RegisterForm() {
   const ref = useRef<HTMLFormElement>(null)
@@ -13,10 +15,17 @@ export default function RegisterForm() {
     success: ''
   })
 
-  useEffect(() => {
+  useEffect(() => { // resetea el formulario
     if (state.success) {
       ref.current?.reset()
+      toast.success(state.success)
     }
+    if(state.errors){
+      state.errors.map(n => {
+        toast.error(n)
+      })
+    }
+
   }, [state])
 
   return (
@@ -26,23 +35,8 @@ export default function RegisterForm() {
       className="mt-14 space-y-5"
       noValidate
     >
-      {state.errors.map(n => <ErrorMessage>{n}</ErrorMessage>)}
-      {state.success ? (<SuccessMessage>{state.success}</SuccessMessage>) : ('')}
+      
 
-
-      <div className="flex flex-col gap-2">
-        <label
-          className="font-bold text-2xl"
-          htmlFor="email"
-        >Email</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="Email de Registro"
-          className="w-full border border-gray-300 p-3 rounded-lg"
-          name="email"
-        />
-      </div>
 
       <div className="flex flex-col gap-2">
         <label
@@ -52,10 +46,34 @@ export default function RegisterForm() {
           type="name"
           placeholder="Nombre de Registro"
           className="w-full border border-gray-300 p-3 rounded-lg"
-          name="name"
+          name="nombre"
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <label
+          className="font-bold text-2xl"
+          htmlFor="email"
+        >Correo</label>
+        <input
+          id="correo"
+          type="email"
+          placeholder="Email de Registro"
+          className="w-full border border-gray-300 p-3 rounded-lg"
+          name="correo"
         />
       </div>
 
+      <div className="flex flex-col gap-2">
+        <label
+          className="font-bold text-2xl"
+        >Telefono</label>
+        <input
+          type="text"
+          placeholder="Su Telefono"
+          className="w-full border border-gray-300 p-3 rounded-lg"
+          name="telefono"
+        />
+      </div>
       <div className="flex flex-col gap-2">
         <label
           className="font-bold text-2xl"

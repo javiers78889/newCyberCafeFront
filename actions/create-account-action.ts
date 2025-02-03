@@ -9,10 +9,12 @@ type ActionType = {
 }
 
 export const createAccount = async (prevState: ActionType, formData: FormData) => {
+    console.log(formData)
 
     const RegisterData = {
-        email: formData.get('email'),
-        name: formData.get('name'),
+        correo: formData.get('correo'),
+        nombre: formData.get('nombre'),
+        telefono: formData.get('telefono'),
         password: formData.get('password'),
         password_confirmation: formData.get('password_confirmation')
     }
@@ -30,24 +32,24 @@ export const createAccount = async (prevState: ActionType, formData: FormData) =
     }
     // registrar usuario
 
-    const url = `${process.env.API_URL}/auth/create-account`
+    const url = `${process.env.API_URL}/users-create`
     const req = await fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name: register.data.name,
-            email: register.data.email,
+            nombre: register.data.nombre,
+            correo: register.data.correo,
+            telefono: register.data.telefono,
             password: register.data.password
         })
     })
 
     const json = await req.json()
     console.log(json)
-    if (req.status === 409) {
-        const error = ErrorResponseSchema.parse(json)
-
+    if (!req.ok) {
+        const error = ErrorResponseSchema.parse({error:json})
         return { errors: [error.error], success: '' }
     }
     const response = SuccessSchema.parse(json)
