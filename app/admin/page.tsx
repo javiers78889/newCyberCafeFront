@@ -1,14 +1,10 @@
 import Admin from "@/components/admin/vistas/Admin"
 import Users from "@/components/admin/vistas/Users"
 import { verifySession } from "@/src/auth/dal"
-import { Metadata } from "next"
 
 
 
-export const metadata: Metadata = {
-    title: 'CashTrackr - Panel Admin',
-    description: 'CashTrackr - Panel Admin'
-}
+
 
 export default async function pageAdmin() {
 

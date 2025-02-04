@@ -4,8 +4,8 @@ import type { Metadata } from 'next'
 import Link from "next/link"
 
 export const metadata: Metadata = {
-    title: 'CashTrackr - Iniciar Sesión',
-    description: 'CashTrackr - Iniciar Sesión'
+    title: 'CyberCafe - Iniciar Sesión',
+    description: 'CyberCafe - Iniciar Sesión'
 }
 
 export default function page() {

@@ -1,12 +1,8 @@
 
 import RegisterForm from "@/components/auth/RegisterForm"
-import type { Metadata } from 'next'
 import Link from "next/link"
 
-export const metadata: Metadata = {
-    title: 'CashTrackr - Crear una cuenta',
-    description: 'CashTrackr - Crear una cuenta'
-}
+
 
 export default function page() {
 

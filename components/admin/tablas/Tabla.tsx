@@ -1,5 +1,6 @@
 "use client"
 import { getPaquetes } from "@/actions/get-paquetes-action";
+import Link from "next/link";
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
 
@@ -37,12 +38,9 @@ export default function Tabla() {
               <th scope="col" className="px-6 py-3">Precio</th>
               <th scope="col" className="px-6 py-3">Tarifa</th>
               <th scope="col" className="px-6 py-3">Status</th>
-              <th scope="col" className="px-6 py-3">
-                <span className="sr-only">Edit</span>
-              </th>
-              <th scope="col" className="px-6 py-3">
-                <span className="sr-only">Entregar</span>
-              </th>
+              <th scope="col" className="px-6 py-3"></th>
+              
+             
             </tr>
           </thead>
           <tbody>
@@ -63,6 +61,14 @@ export default function Tabla() {
                     <td className="px-6 py-4">{product.precio}</td>
                     <td className="px-6 py-4">{product.tarifas}</td>
                     <td className="px-6 py-4">{product.status}</td>
+                    <td className="px-6 py-4 text-right">
+                        <Link
+                          href={`/admin/factura/${product.id}`}
+                          className="font-medium text-yellow-600 dark:text-blue-500 hover:underline"
+                        >
+                          Factura
+                        </Link>
+                      </td>
                    
                   </tr>
                 );

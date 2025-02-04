@@ -4,8 +4,8 @@ import type { Metadata } from 'next'
 import Link from "next/link"
 
 export const metadata: Metadata = {
-    title: 'CashTrackr - Olvidé mi Password',
-    description: 'CashTrackr - Olvidé mi Password'
+    title: 'CyberCafe - Olvidé mi Password',
+    description: 'CyberCafe - Olvidé mi Password'
 }
 
 export default function ForgotPasswordPage() {

@@ -2,8 +2,12 @@ import AdminMenu from "@/components/admin/AdminMenu";
 import Logo from "@/components/ui/Logo";
 import ToasterNotification from "@/components/ui/ToasterNotification";
 import { verifySession } from "@/src/auth/dal";
+import { Metadata } from "next";
 import Link from "next/link";
-
+export const metadata: Metadata = {
+  title: 'CyberCafe - Admin',
+  description: 'CyberCafe - Admin'
+}
 export default async function AdminLayout({
   children,
 }: Readonly<{

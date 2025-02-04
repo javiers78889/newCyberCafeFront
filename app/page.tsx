@@ -9,7 +9,9 @@ import { useFormState } from "react-dom";
 import { toast } from "react-toastify";
 
 
+
 export default function Home() {
+  
   const ref = useRef<HTMLFormElement>(null)
   const [state, dispatch] = useFormState(rastreoPaquetes, {
     success: '',

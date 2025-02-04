@@ -1,6 +1,10 @@
 import ConfirmAccountForm from '@/components/auth/ConfirmAccountForm'
+import { Metadata } from 'next'
 
-
+export const metadata: Metadata = {
+    title: 'CyberCafe - Confirm-account',
+    description: 'CyberCafe - Confirm-account'
+}
 export default function page() {
     return (
         <>
