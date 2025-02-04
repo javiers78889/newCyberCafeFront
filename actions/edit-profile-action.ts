@@ -42,7 +42,7 @@ export const editProfile = async (prevState:TEdit,formData: FormData) => {
     const json = await req.json()
 
     if(!req.ok){
-        const errores = ErrorResponseSchema.parse(json)
+        const errores = ErrorResponseSchema.parse({error:json})
         return{
             success:'',
             errors:[errores.error]
