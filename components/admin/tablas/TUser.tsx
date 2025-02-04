@@ -2,7 +2,6 @@
 import { DeletePaquete } from "@/actions/delete-paquetes-action";
 import { EntregarPaquete } from "@/actions/Entregar-paquetes-action";
 import { getPaquetesAdmin } from "@/actions/get-admin-paquetes-action";
-import Factura from "@/components/PDF/pdf";
 import { Button } from "@headlessui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -29,7 +28,7 @@ export default function TUser() {
 
   useEffect(() => {
     let total = 0
-    const dinero = state.success.map(n => {
+    state.success.map(n => {
       total = total + n.precio
     })
     setIngreso(total)

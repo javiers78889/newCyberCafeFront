@@ -1,7 +1,6 @@
 "use client"
 import { getPaquetes } from "@/actions/get-paquetes-action";
-import { verifySession } from "@/src/auth/dal";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
 type User = {
   id: number;
@@ -16,7 +15,6 @@ export default function Tabla({ user }: { user: User }) {
     errors: [],
     success: []
   })
-  const[pendientes, setPendientes]= useState({})
 
   useEffect(() => {
     dispatch()
