@@ -4,7 +4,7 @@ import { PinInput, PinInputField } from '@chakra-ui/pin-input'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useFormState } from 'react-dom'
-import { Bounce, toast } from 'react-toastify'
+import {  toast } from 'react-toastify'
 export default function ConfirmAccountForm() {
     const router = useRouter()
     const [isComplete, setIscomplete] = useState(false)

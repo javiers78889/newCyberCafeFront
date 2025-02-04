@@ -17,7 +17,7 @@ export default function LoginForm() {
 
     useEffect(() => {
         if (!state.success) {
-            const errores = state.error.map(errores => {
+            state.error.map(errores => {
 
                return toast.error(errores)
 
@@ -30,7 +30,7 @@ export default function LoginForm() {
             toast.success('validado', { onClose: () => { router.push('/admin') } })
         }
 
-    }, [state])
+    }, [state,router])
     return (
         <>
             <form
