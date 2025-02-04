@@ -1,7 +1,6 @@
 "use client"
 
 import { createPaquetes } from '@/actions/create-paquetes-action'
-import { stat } from 'fs'
 import React, { useEffect, useRef } from 'react'
 import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'

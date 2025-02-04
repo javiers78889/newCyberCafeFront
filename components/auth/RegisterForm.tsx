@@ -2,16 +2,13 @@
 
 import { createAccount } from "@/actions/create-account-action"
 import { useFormState } from "react-dom"
-import ErrorMessage from "../ui/ErrorMessage"
-import SuccessMessage from "../ui/SuccessMessage"
 import { useEffect, useRef } from "react"
 import { toast } from "react-toastify"
-import { stat } from "fs"
-import { redirect, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 export default function RegisterForm() {
   const ref = useRef<HTMLFormElement>(null)
-   const router= useRouter()
+  const router = useRouter()
   const [state, dispatch] = useFormState(createAccount, {
     errors: [],
     success: ''
@@ -20,11 +17,13 @@ export default function RegisterForm() {
   useEffect(() => { // resetea el formulario
     if (state.success) {
       ref.current?.reset()
-      toast.success(state.success,{onClose:()=>{
-        router.push('/auth/login')
-      }})
+      toast.success(state.success, {
+        onClose: () => {
+          router.push('/auth/login')
+        }
+      })
     }
-    if(state.errors){
+    if (state.errors) {
       state.errors.map(n => {
         toast.error(n)
       })
@@ -39,7 +38,7 @@ export default function RegisterForm() {
       className="mt-14 space-y-5"
       noValidate
     >
-      
+
 
 
       <div className="flex flex-col gap-2">
