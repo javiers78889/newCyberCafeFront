@@ -17,10 +17,7 @@ export const getPaquetesAdmin = async (): Promise<ActionType>  => {
         }
     })
 
-    const json = await req.json()
-    console.log(json)
-      
-   
+    const json = await req.json()   
        if (!req.ok) {
            const error = ErrorResponseSchema.parse(json)
    

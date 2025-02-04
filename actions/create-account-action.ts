@@ -9,7 +9,6 @@ type ActionType = {
 }
 
 export const createAccount = async (prevState: ActionType, formData: FormData) => {
-    console.log(formData)
 
     const RegisterData = {
         correo: formData.get('correo'),
@@ -47,7 +46,6 @@ export const createAccount = async (prevState: ActionType, formData: FormData) =
     })
 
     const json = await req.json()
-    console.log(json)
     if (!req.ok) {
         const error = ErrorResponseSchema.parse({error:json})
         return { errors: [error.error], success: '' }

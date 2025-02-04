@@ -39,7 +39,6 @@ export const Login = async (prevState: LoginType, formData: FormData) => {
     const json = await req.json()
     
     if (!req.ok) {
-        console.log(json)
         const errores = ErrorResponseSchema.parse({error:json})
         return {
             error: [errores.error],

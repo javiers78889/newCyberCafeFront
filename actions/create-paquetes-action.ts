@@ -47,7 +47,6 @@ export const createPaquetes = async (prevstate: PaquetesType, formData: FormData
     }
     )
     const json = await req.json()
-    console.log(json)
 
     if (!req.ok) {
         

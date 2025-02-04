@@ -7,9 +7,11 @@ import SuccessMessage from "../ui/SuccessMessage"
 import { useEffect, useRef } from "react"
 import { toast } from "react-toastify"
 import { stat } from "fs"
+import { redirect, useRouter } from "next/navigation"
 
 export default function RegisterForm() {
   const ref = useRef<HTMLFormElement>(null)
+   const router= useRouter()
   const [state, dispatch] = useFormState(createAccount, {
     errors: [],
     success: ''
@@ -18,7 +20,9 @@ export default function RegisterForm() {
   useEffect(() => { // resetea el formulario
     if (state.success) {
       ref.current?.reset()
-      toast.success(state.success)
+      toast.success(state.success,{onClose:()=>{
+        router.push('/auth/login')
+      }})
     }
     if(state.errors){
       state.errors.map(n => {

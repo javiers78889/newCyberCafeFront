@@ -1,8 +1,14 @@
 "use client"
+import { DeletePaquete } from "@/actions/delete-paquetes-action";
+import { EntregarPaquete } from "@/actions/Entregar-paquetes-action";
 import { getPaquetesAdmin } from "@/actions/get-admin-paquetes-action";
+import Factura from "@/components/PDF/pdf";
+import { Button } from "@headlessui/react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import ReactPaginate from "react-paginate";
+import { toast } from "react-toastify";
 
 
 
@@ -12,7 +18,8 @@ export default function TUser() {
     success: [],
   });
 
-  const [ingreso, setIngreso]= useState(0)
+
+  const [ingreso, setIngreso] = useState(0)
   const [currentPage, setCurrentPage] = useState(0);  // Usamos el índice de la página (0 es la primera)
   const itemsPerPage = 8;
 
@@ -23,10 +30,10 @@ export default function TUser() {
   useEffect(() => {
     let total = 0
     const dinero = state.success.map(n => {
-     total = total + n.precio
+      total = total + n.precio
     })
     setIngreso(total)
-    console.log(total)
+
   }, [state]);
 
   // Calcular los elementos a mostrar en la página actual
@@ -37,9 +44,30 @@ export default function TUser() {
   const handlePageChange = (selectedItem: { selected: number }) => {
     setCurrentPage(selectedItem.selected);
   };
+  const OnClicke = async (id: number) => {
+    const estado = await EntregarPaquete({ success: '', errors: [] }, id)
+    if (estado.success) {
+      toast.success(estado.success)
+      dispatch()
+    }
+    if (estado.errors) {
+      toast.success(estado.errors)
+    }
+  }
 
+  const OnDelete = async (id: number) => {
+    const estado = await DeletePaquete({ success: '', errors: [] }, id)
+    if (estado.success) {
+      toast.success(estado.success)
+      dispatch()
+    }
+    if (estado.errors) {
+      toast.info(estado.errors)
+    }
+  }
   return (
     <>
+
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
 
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -57,6 +85,7 @@ export default function TUser() {
               <th scope="col" className="px-6 py-3">Status</th>
               <th scope="col" className="px-6 py-3">Acciones</th>
               <th scope="col" className="px-6 py-3"></th>
+              <th scope="col" className="px-6 py-3"></th>
             </tr>
           </thead>
           <tbody>
@@ -69,39 +98,59 @@ export default function TUser() {
             ) : (
               currentItems.map((product) => {
                 return (
-                  <tr
-                    key={product.id}
-                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
-                  >
-                    <td className="px-6 py-4">{product.id}</td>
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  <>
+                    <tr
+                      key={product.id}
+                      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
                     >
-                      {product.usuario}
-                    </th>
-                    <td className="px-6 py-4">{product.tracking}</td>
-                    <td className="px-6 py-4">{product.peso}</td>
-                    <td className="px-6 py-4">{product.precio}</td>
-                    <td className="px-6 py-4">{product.tarifas}</td>
-                    <td className="px-6 py-4">{product.status}</td>
-                    <td className="px-6 py-4 text-right">
-                      <a
-                        href="#"
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      <td className="px-6 py-4">{product.id}</td>
+                      <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
-                        Edit
-                      </a>
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <a
-                        href="#"
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      >
-                        Entregar
-                      </a>
-                    </td>
-                  </tr>
+                        {product.usuario}
+                      </th>
+                      <td className="px-6 py-4">{product.tracking}</td>
+                      <td className="px-6 py-4">{product.peso}</td>
+                      <td className="px-6 py-4">{product.precio}</td>
+                      <td className="px-6 py-4">{product.tarifas}</td>
+                      <td className="px-6 py-4">{product.status}</td>
+                      <td className="px-6 py-4 text-right">
+                        <Link
+                          href={`/admin/factura/${product.id}`}
+                          className="font-medium text-yellow-600 dark:text-blue-500 hover:underline"
+                        >
+                          Factura
+                        </Link>
+                      </td>
+                      <td className="px-6 py-4 text-right">
+                        {product.status !== 'Entregado ✅' ? (
+                          <Button
+                            onClick={() => OnDelete(product.id)}
+                            className="font-medium text-red-600 dark:text-blue-500 hover:underline"
+                          >
+                            X
+                          </Button>
+                        ) : ('✅')}
+                      </td>
+
+                      <td className="px-6 py-4 text-right">
+                        {product.status !== 'Entregado ✅' ? (
+
+
+                          <Button
+                            onClick={() => OnClicke(product.id)}
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
+                            Entregar
+                          </Button>
+                        ) :
+
+                          'Entregado'
+                        }
+                      </td>
+                    </tr>
+                  </>
                 );
               })
             )}

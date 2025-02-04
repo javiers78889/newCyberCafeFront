@@ -26,8 +26,6 @@ export const forgotPassword = async (prevstate: ActionForgotPassword, formData: 
 
     const json = req.json()
 
-    console.log(json)
-
     return {
         success: '',
         errors: []

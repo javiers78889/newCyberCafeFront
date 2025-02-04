@@ -77,8 +77,9 @@ export default function RegisterPaquetes() {
                 >Plan</label>
                 <select id="plan"
                     className="w-full border text-gray-500 border-gray-300 p-3 rounded-lg"
-                    name="plan">
-                        <option selected disabled>Elige un plan</option>
+                    name="plan"
+                    defaultValue="Elige un plan">
+                        <option  value={''}>Elige un plan</option>
                         <option value="aereo">Aereo</option>
                         <option value="maritimo">Maritimo</option>
 

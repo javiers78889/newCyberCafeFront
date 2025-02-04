@@ -1,17 +1,17 @@
 "use server"
 
-import { ErrorResponseSchema, getUsers, getUserSchema } from "@/src/schemas"
+import { ErrorResponseSchema, getUserSchema } from "@/src/schemas"
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
 import { cookies } from "next/headers"
 
-type ActionType = {
-    errors: string[],
-    success: getUsers
-}
 
 
+export const ConsultarFactura = async (id:Params) => {
+  
+console.log('AQUI')
+console.log(id)
 
-export const getPaquetes = async (): Promise<ActionType> => {
-    const url = `${process.env.API_URL}/paquetes`
+    const url = `${process.env.API_URL}/paquetes/${id.id}`
     const jwt = cookies().get('jwt')
     const req = await fetch(url, {
         headers: {
@@ -21,7 +21,7 @@ export const getPaquetes = async (): Promise<ActionType> => {
 
     const json = await req.json()
 
-   
+    
 
     if (!req.ok) {
         const error = ErrorResponseSchema.parse(json)
@@ -39,9 +39,10 @@ export const getPaquetes = async (): Promise<ActionType> => {
         tracking: n.tracking,
         usuario: n.usuario
     }))
+    console.log(DataSuccess)
 
     return {
-        errors: [],
-        success: DataSuccess
+        success: DataSuccess,
+        errors: []
     }
 }

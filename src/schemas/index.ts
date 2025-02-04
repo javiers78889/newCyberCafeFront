@@ -98,3 +98,5 @@ export const editPerfilSchema = z.object({
     correo:z.string().email({message:'Correo no valido'}),
     correo_confirm: z.string().email({message:'Correo no valido'})
 }).refine(data=> data.correo === data.correo_confirm,{message:'los correos no coinciden'})
+
+export const EntregarPaqueteSchema = z.number({message:'El Id debe ser numerico'}).min(1,{message:'ID muy corto'})

@@ -13,9 +13,6 @@ export const editProfile = async (prevState:TEdit,formData: FormData) => {
     const url = `${process.env.API_URL}/users`
     const token = cookies().get('jwt')
 
-    console.log(token)
-
-   
     const edit={
         nombre:formData.get('nombre'),
         correo:formData.get('correo'),
