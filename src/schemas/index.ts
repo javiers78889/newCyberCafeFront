@@ -32,8 +32,8 @@ export const UserSchema = z.object({
 export type User = z.infer<typeof UserSchema>
 
 export const ForgotSchema = z.object({
-    email: z.string().email('Email no válido')
-})
+    usuario: z.string().min(1,{message:'Usuario incorrecto'})
+}).refine(data=> data.usuario.startsWith("Evan3-"),{message:'Formato Incorrecto'} )
 
 
 export const getUserSchema = z.array(

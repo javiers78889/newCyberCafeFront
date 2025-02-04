@@ -19,7 +19,7 @@ export default function RootLayout({
       <body
         className={outfit.className}
       >
-        <div className="lg:bg-auth min-h-screen   bg-no-repeat ">
+        <div >
 
           {children}
         </div>

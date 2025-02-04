@@ -24,13 +24,13 @@ export default function ForgotPasswordForm() {
             <div className="flex flex-col gap-2 mb-10">
                 <label
                     className="font-bold text-2xl"
-                >Email</label>
+                >Usuario</label>
 
                 <input
                     type="email"
-                    placeholder="Email de Registro"
+                    placeholder="Usuario de Registro"
                     className="w-full border border-gray-300 p-3 rounded-lg"
-                    name="email"
+                    name="name"
                 />
             </div>
 

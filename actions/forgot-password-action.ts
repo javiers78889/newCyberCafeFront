@@ -10,19 +10,13 @@ type ActionForgotPassword = {
 
 export const forgotPassword = async (prevstate: ActionForgotPassword, formData: FormData) => {
     const forgotData = {
-        email : formData.get('email')
+        usuario : formData.get('usuario')
     }
-    const token = cookies().get('jwt')
     const RecoverData = ForgotSchema.safeParse(forgotData)
-    const email = RecoverData.data?.email
-    const url = `${process.env.API_URL}/auth/users/${email}`
+    const usuario = RecoverData.data?.usuario
+    const url = `${process.env.API_URL}/forgot-password/${usuario}`
 
-    const req = await fetch(url, {
-        headers:{
-            
-            Authorization : `Bearer ${token}`
-        }
-    })
+    const req = await fetch(url, {})
 
     const json = req.json()
 
