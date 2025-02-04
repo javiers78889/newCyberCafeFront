@@ -2,14 +2,9 @@
 import { getPaquetes } from "@/actions/get-paquetes-action";
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
-type User = {
-  id: number;
-  nombre: string;
-  correo?: string | null;
-};
 
 
-export default function Tabla({ user }: { user: User }) {
+export default function Tabla() {
 
   const [state, dispatch] = useFormState(getPaquetes, {
     errors: [],

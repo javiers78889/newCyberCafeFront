@@ -1,6 +1,5 @@
 
 import ForgotPasswordForm from "@/components/auth/ForgotPasswordForm"
-import RegisterForm from "@/components/auth/RegisterForm"
 import type { Metadata } from 'next'
 import Link from "next/link"
 

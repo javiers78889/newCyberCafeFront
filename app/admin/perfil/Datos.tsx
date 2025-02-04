@@ -1,10 +1,9 @@
 "use client"
 import Logo from '@/components/ui/Logo'
 import { User } from '@/src/schemas'
-import { Button } from '@headlessui/react'
 import Link from 'next/link'
 import React from 'react'
-import { useFormState } from 'react-dom'
+
 
 
 export default function Datos({ user }: { user: User }) {
