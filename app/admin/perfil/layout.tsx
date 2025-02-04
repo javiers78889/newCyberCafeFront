@@ -1,4 +1,3 @@
-import Logo from "@/components/ui/Logo";
 import LogoProfile from "@/components/ui/LogoProfile";
 import ToasterNotification from "@/components/ui/ToasterNotification";
 
