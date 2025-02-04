@@ -19,7 +19,7 @@ export default function RootLayout({
       <body
         className={outfit.className}
       >
-        <div >
+        <div className="bg-cyan-100">
 
           {children}
         </div>

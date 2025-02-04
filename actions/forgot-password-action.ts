@@ -10,7 +10,10 @@ type ActionForgotPassword = {
 
 export const forgotPassword = async (prevstate: ActionForgotPassword, formData: FormData) => {
     const forgotData = {
-        usuario : formData.get('usuario')
+        usuario: formData.get('usuario'),
+        correo: formData.get('correo'),
+        password: formData.get('password'),
+        password_confirm: formData.get('password_confirm')
     }
     const RecoverData = ForgotSchema.safeParse(forgotData)
     const usuario = RecoverData.data?.usuario

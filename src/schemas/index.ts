@@ -32,8 +32,11 @@ export const UserSchema = z.object({
 export type User = z.infer<typeof UserSchema>
 
 export const ForgotSchema = z.object({
-    usuario: z.string().min(1,{message:'Usuario incorrecto'})
-}).refine(data=> data.usuario.startsWith("Evan3-"),{message:'Formato Incorrecto'} )
+    usuario: z.string().min(1,{message:'Usuario incorrecto'}),
+    correo: z.string().email({message:'Correo no válido'}),
+    password: z.string().min(1,{message:'Contraseña no válida'}),
+    password_confirm: z.string().min(1,{message:'Contraseña no válida'})
+}).refine(data=> data.usuario.startsWith("Evan3-"),{message:'Formato Incorrecto'} ).refine(datos=> datos.password === datos.password_confirm,{message:'Los password no coinciden'})
 
 
 export const getUserSchema = z.array(
@@ -100,3 +103,5 @@ export const editPerfilSchema = z.object({
 }).refine(data=> data.correo === data.correo_confirm,{message:'los correos no coinciden'})
 
 export const EntregarPaqueteSchema = z.number({message:'El Id debe ser numerico'}).min(1,{message:'ID muy corto'})
+
+export const RastreoSchema = z.string().min(1,{message: 'Ingrese Un tracking'})
