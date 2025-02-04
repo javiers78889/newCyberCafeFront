@@ -3,9 +3,8 @@ import { ConsultarFactura } from '@/actions/generate-pdf-action'
 import Factura from '@/components/PDF/pdf'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import { useFormState } from 'react-dom'
 
-export default function page() {
+export default function Page() {
   const id = useParams()
   const [factura, setFactura] = useState<{ 
     id: number; 

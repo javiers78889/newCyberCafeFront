@@ -1,5 +1,4 @@
 import React from 'react'
-import Tabla from '../tablas/Tabla'
 import Logo from '@/components/ui/Logo'
 import Link from 'next/link'
 import RegisterPaquetes from '@/components/paquetes/RegisterPaquetes'

@@ -1,11 +1,7 @@
 import TUser from '@/components/admin/tablas/TUser'
-import { AdminPrivilege } from '@/src/auth/dalAdmin'
-import React, { useEffect } from 'react'
+
 
 export default async function page() {
-    const { response } = await AdminPrivilege()
-
-
 
     return (
         <>
