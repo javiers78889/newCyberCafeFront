@@ -1,18 +1,29 @@
 "use client"
 
 import { forgotPassword } from "@/actions/forgot-password-action"
+import { stat } from "fs"
+import { useRouter } from "next/navigation"
 import { useEffect, useRef } from "react"
 import { useFormState } from "react-dom"
+import { toast } from "react-toastify"
 
 export default function ForgotPasswordForm() {
     const ref = useRef(null)
+    const router= useRouter()
     const [state, dispatch] = useFormState(forgotPassword, {
         errors: [],
         success: ''
     })
 
     useEffect(() => { //aquí van los mensajes
-
+        if (!state.success) {
+           state.errors.map(error=>{
+            toast.error(error)
+           })
+        }
+        if(state.success){
+            toast.success(state.success,{ onClose: () => { router.push('/auth/login') } })
+        }
     }, [state])
     return (
         <form

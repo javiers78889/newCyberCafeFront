@@ -34,7 +34,7 @@ export type User = z.infer<typeof UserSchema>
 export const ForgotSchema = z.object({
     usuario: z.string().min(1,{message:'Usuario incorrecto'}),
     correo: z.string().email({message:'Correo no válido'}),
-    password: z.string().min(1,{message:'Contraseña no válida'}),
+    password: z.string({message:'El password no puede ir vacio'}).min(8, { message: 'El Password debe tener minimo 8 carácteres.' }),
     password_confirm: z.string().min(1,{message:'Contraseña no válida'})
 }).refine(data=> data.usuario.startsWith("Evan3-"),{message:'Formato Incorrecto'} ).refine(datos=> datos.password === datos.password_confirm,{message:'Los password no coinciden'})
 
