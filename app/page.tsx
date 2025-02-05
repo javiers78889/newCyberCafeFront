@@ -32,7 +32,7 @@ export default function Home() {
       <Image src="/fete.png" alt="Logotipo" width={400} height={123} priority />
       <div className="flex flex-col gap-5">
         <div>
-          <form action={dispatch} className="mt-14 space-y-5 shadow-lg p-5 bg-white rounded-lg" ref={ref} >
+          <form action={dispatch} className="mt-8 bg-white space-y-5 shadow-xl p-5 e rounded-lg" ref={ref} >
             <div className="flex flex-col gap-2">
             <label
                     className="font-black text-2xl"
