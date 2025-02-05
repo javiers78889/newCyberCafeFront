@@ -1,7 +1,9 @@
 import TUser from '@/components/admin/tablas/TUser'
+import { AdminPrivilege } from '@/src/auth/dalAdmin'
 
 
 export default async function page() {
+    await AdminPrivilege()
 
     return (
         <>
