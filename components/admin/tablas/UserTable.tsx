@@ -49,7 +49,6 @@ export default function UserTable() {
               <th scope="col" className="px-6 py-3">nombre</th>
               <th scope="col" className="px-6 py-3">Telefono</th>
               <th scope="col" className="px-6 py-3">Correo</th>
-              <th scope="col" className="px-6 py-3">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -77,14 +76,7 @@ export default function UserTable() {
                     <td className="px-6 py-4">{product.nombre}</td>
                     <td className="px-6 py-4">{product.telefono}</td>
                     <td className="px-6 py-4">{product.correo}</td>
-                    <td className="px-6 py-4 text-right">
-                      <a
-                        href="#"
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      >
-                        Edit
-                      </a>
-                    </td>
+                
 
                   </tr>
                 );
