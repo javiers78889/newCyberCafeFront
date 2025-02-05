@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 
 
 export default function Home() {
-  
+
   const ref = useRef<HTMLFormElement>(null)
   const [state, dispatch] = useFormState(rastreoPaquetes, {
     success: '',
@@ -32,8 +32,19 @@ export default function Home() {
       <Image src="/fete.png" alt="Logotipo" width={400} height={123} priority />
       <div className="flex flex-col gap-5">
         <div>
-          <form action={dispatch} className="flex gap-5" ref={ref} >
-            <input type="text" name="tracking" id="tracking" placeholder="  Ingresa un tracking" className="rounded-lg p-2 shadow-lg" />
+          <form action={dispatch} className="mt-14 space-y-5 shadow-lg p-5 bg-white rounded-lg" ref={ref} >
+            <div className="flex flex-col gap-2">
+            <label
+                    className="font-black text-2xl"
+                >Rastrear <span className="text-red-500">Paquete</span></label>
+              <input
+                id="tracking"
+                type="text"
+                placeholder="Rastrea un tracking"
+                className="w-full border border-gray-300 p-3 rounded-lg"
+                name="tracking"
+              />
+            </div>
             <input
               type="submit"
               value='Rastrear'
