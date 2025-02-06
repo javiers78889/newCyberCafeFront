@@ -88,7 +88,6 @@ export default function Factura({factura}:{factura:getUsers}) {
         .pdf-container {
           background: white;
           padding: 20px;
-          width: 210mm; /* Tamaño A4 */
           min-height: 297mm;
         }
         .factura {
