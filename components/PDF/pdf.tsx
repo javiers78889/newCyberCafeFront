@@ -28,7 +28,7 @@ export default function Factura({factura}:{factura:getUsers}) {
 
             {/* Contenido que se convertirá en PDF */}
             <button className="bg-red-500 p-3 rounded-lg text-white" onClick={generatePDF}>Descargar PDF</button>
-            <div ref={pdfRef} className="pdf-container">
+            <div ref={pdfRef} className="pdf-container w-auto">
                 <div className="factura  bg-no-repeat">
                     <div className="flex items-start flex-col gap-5  font-bold">
                         <h2>N° DE FACTURA: FS-{factura[0].id}</h2>
