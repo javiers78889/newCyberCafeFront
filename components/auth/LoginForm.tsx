@@ -47,7 +47,7 @@ export default function LoginForm() {
                     <input
                         id="usuario"
                         type="text"
-                        placeholder="Email de Registro"
+                        placeholder="Ingrese su usuario"
                         className="w-full border border-gray-300 p-3 rounded-lg"
                         name="usuario"
                     />
