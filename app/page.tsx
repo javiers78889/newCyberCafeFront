@@ -27,33 +27,35 @@ export default function Home() {
     }
   }, [state])
   return (
-    <div className="lg:bg-auth bg-no-repeat min-h-screen flex justify-center items-center flex-col">
-      <ToasterNotification />
-      <Image src="/fete.png" alt="Logotipo" width={400} height={123} priority />
-      <div className="flex flex-col gap-5">
-        <div>
-          <form action={dispatch} className="mt-8 bg-white space-y-5 shadow-xl p-5 e rounded-lg" ref={ref} >
-            <div className="flex flex-col gap-2">
-            <label
-                    className="font-black text-2xl"
+    <div className="bg-red-600">
+      <div className="lg:bg-auth bg-no-repeat min-h-screen flex justify-center items-center flex-col">
+        <ToasterNotification />
+        <Image src="/fete-blanco.png" alt="Logotipo" width={400} height={123} priority />
+        <div className="flex flex-col gap-5">
+          <div>
+            <form action={dispatch} className="mt-8 bg-white space-y-5 shadow-xl p-5 e rounded-lg" ref={ref} >
+              <div className="flex flex-col gap-2">
+                <label
+                  className="font-black text-2xl"
                 >Rastrear <span className="text-red-500">Paquete</span></label>
+                <input
+                  id="tracking"
+                  type="text"
+                  placeholder="Rastrea un tracking"
+                  className="w-full border border-gray-300 p-3 rounded-lg"
+                  name="tracking"
+                />
+              </div>
               <input
-                id="tracking"
-                type="text"
-                placeholder="Rastrea un tracking"
-                className="w-full border border-gray-300 p-3 rounded-lg"
-                name="tracking"
+                type="submit"
+                value='Rastrear'
+                className="bg-amber-500 hover:bg-amber-800 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer block"
               />
-            </div>
-            <input
-              type="submit"
-              value='Rastrear'
-              className="bg-amber-500 hover:bg-amber-800 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer block"
-            />
-          </form>
+            </form>
 
+          </div>
+          <Link href='/auth/login' className='bg-blue-500 hover:bg-blue-800 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer block text-center'>CYBERCAFEAPP</Link>
         </div>
-        <Link href='/auth/login' className='bg-blue-500 hover:bg-blue-800 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer block text-center'>CYBERCAFEAPP</Link>
       </div>
     </div>
   );
