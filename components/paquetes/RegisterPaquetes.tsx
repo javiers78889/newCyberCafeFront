@@ -19,6 +19,7 @@ export default function RegisterPaquetes() {
         }
         if(state.success){
             toast.success(state.success)
+            ref.current?.reset()
         }
         
     },[state])
