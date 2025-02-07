@@ -9,15 +9,7 @@ import { useFormState } from "react-dom";
 import ReactPaginate from "react-paginate";
 import { toast } from "react-toastify";
 
-interface Paquete {
-  id: number;
-  usuario: string;
-  tracking: string;
-  peso: number;
-  precio: number;
-  tarifas: number;
-  status: string;
-}
+
 
 export default function TUser() {
   const [state, dispatch] = useFormState(getPaquetesAdmin, {
