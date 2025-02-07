@@ -2,14 +2,17 @@ import AdminDirection from '../AdminDirection'
 import Link from 'next/link'
 import Logo from '@/components/ui/Logo';
 type TUser = {
-    id: number;
-    nombre: string;
+    id: number,
+    nombre: string,
+    correo?:string|null
 
 }
 export default function Users({ user }: { user: TUser }) {
-    console.log(user)
+
     return (
         <>
+
+            {user.correo?(''):(<Link href={'/admin/perfil/edit'} className='text-xl text-red-600 font-bold hover:underline text-wrap'>**¡Por favor agregue un correo para recibir su factura al correo aquí!**</Link>)}
             <div className='flex flex-col-reverse md:flex-row md:justify-between items-center shadow-md p-5 bg-white'>
                 <div className='w-full md:w-auto '>
                     <h1 className="font-black text-4xl  my-5">Mis <span className='text-red-600'>Paquetes</span></h1>
