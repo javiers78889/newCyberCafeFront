@@ -4,7 +4,6 @@ import { EntregarPaquete } from "@/actions/Entregar-paquetes-action";
 import { getPaquetesAdmin } from "@/actions/get-admin-paquetes-action";
 import { formatCurrency } from "@/src/utils";
 import { Button } from "@headlessui/react";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import ReactPaginate from "react-paginate";
@@ -26,7 +25,6 @@ export default function TUser() {
     success: [] ,
   });
 
-  const [ingreso, setIngreso] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const itemsPerPage = 8;
@@ -35,10 +33,7 @@ export default function TUser() {
     dispatch();
   }, []);
 
-  useEffect(() => {
-    let total = state.success.reduce((acc, paquete) => acc + paquete.precio, 0);
-    setIngreso(total);
-  }, [state]);
+
 
   const filteredItems = state.success.filter((paquete) =>
     paquete.usuario.toLowerCase().includes(searchTerm.toLowerCase())
