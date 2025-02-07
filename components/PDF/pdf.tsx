@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import { getUsers } from "@/src/schemas";
+import { formatCurrency } from "@/src/utils";
 
 export default function Factura({factura}:{factura:getUsers}) {
     const pdfRef = useRef<HTMLDivElement>(null);
@@ -28,7 +29,7 @@ export default function Factura({factura}:{factura:getUsers}) {
 
             {/* Contenido que se convertirá en PDF */}
             <button className="bg-red-500 p-3 rounded-lg text-white" onClick={generatePDF}>Descargar PDF</button>
-            <div ref={pdfRef} className="pdf-container w-auto">
+            <div ref={pdfRef} className="pdf-container">
                 <div className="factura  bg-no-repeat">
                     <div className="flex items-start flex-col gap-5  font-bold">
                         <h2>N° DE FACTURA: FS-{factura[0].id}</h2>
@@ -58,13 +59,13 @@ export default function Factura({factura}:{factura:getUsers}) {
                             <tr>
                                 <td>{factura[0].peso}</td>
                                 <td>{factura[0].tracking}</td>
-                                <td>${factura[0].tarifas}</td>
-                                <td>${factura[0].precio}</td>
+                                <td>{formatCurrency(factura[0].tarifas)}</td>
+                                <td>{formatCurrency(factura[0].precio)}</td>
                             </tr>
                         </tbody>
                     </table>
                     <div className="py-5">
-                        <h3 className="text-start py-5 text-3xl font-bold">Total Factura: ${factura[0].precio} USD</h3>
+                        <h3 className="text-start py-5 text-3xl font-bold">Total Factura: {formatCurrency(factura[0].precio)} USD</h3>
                         <p className="font-bold text-sm my-5">CONDICIONES Y FORMA DE PAGO</p>
                         <p className="footer font-bold">MÁXIMO 7 DIAS CALENDARIO LIBRE DE ALMACENAJE DESPUES DE LA FECHA DE FACTURA.</p>
                     </div>
@@ -88,6 +89,7 @@ export default function Factura({factura}:{factura:getUsers}) {
         .pdf-container {
           background: white;
           padding: 20px;
+          width: 210mm; /* Tamaño A4 */
           min-height: 297mm;
         }
         .factura {
