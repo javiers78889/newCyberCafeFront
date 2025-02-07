@@ -2,6 +2,7 @@
 import { DeletePaquete } from "@/actions/delete-paquetes-action";
 import { EntregarPaquete } from "@/actions/Entregar-paquetes-action";
 import { getPaquetesAdmin } from "@/actions/get-admin-paquetes-action";
+import { formatCurrency } from "@/src/utils";
 import { Button } from "@headlessui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -111,8 +112,8 @@ export default function TUser() {
                       </th>
                       <td className="px-6 py-4">{product.tracking}</td>
                       <td className="px-6 py-4">{product.peso}</td>
-                      <td className="px-6 py-4">{product.precio}</td>
-                      <td className="px-6 py-4">{product.tarifas}</td>
+                      <td className="px-6 py-4">{formatCurrency(product.precio)}</td>
+                      <td className="px-6 py-4">{formatCurrency(product.tarifas)}</td>
                       <td className="px-6 py-4">{product.status}</td>
                       <td className="px-6 py-4 text-right">
                         <Link
