@@ -6,7 +6,7 @@ import html2canvas from "html2canvas";
 import { getUsers } from "@/src/schemas";
 import { formatCurrency } from "@/src/utils";
 
-export default function Factura({factura}:{factura:getUsers}) {
+export default function Factura({ factura }: { factura: getUsers }) {
     const pdfRef = useRef<HTMLDivElement>(null);
 
     const generatePDF = async () => {
@@ -29,7 +29,7 @@ export default function Factura({factura}:{factura:getUsers}) {
 
             {/* Contenido que se convertirá en PDF */}
             <button className="bg-red-500 p-3 rounded-lg text-white" onClick={generatePDF}>Descargar PDF</button>
-            <div ref={pdfRef} className="pdf-container w-auto">
+            <div ref={pdfRef} className="pdf-container w-full">
                 <div className="factura  bg-no-repeat">
                     <div className="flex items-start flex-col gap-5  font-bold">
                         <h2>N° DE FACTURA: FS-{factura[0].id}</h2>
@@ -46,24 +46,28 @@ export default function Factura({factura}:{factura:getUsers}) {
                         <p> Correo:</p>
                         <p>cybercafechame@gmail.com</p>
                     </div>
-                    <table className="bg-white">
-                        <thead className="bg-red-600 text-white">
-                            <tr>
-                                <th>LIBRAS</th>
-                                <th>DESCRIPCIÓN</th>
-                                <th>IMPORTE</th>
-                                <th>TOTAL</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{factura[0].peso}</td>
-                                <td>{factura[0].tracking}</td>
-                                <td>{formatCurrency(factura[0].tarifas)}</td>
-                                <td>{formatCurrency(factura[0].precio)}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                  
+                        <div className="overflow-x-auto">
+                            <table className="bg-white w-full overflow-hidden">
+                                <thead className="bg-red-600 text-white">
+                                    <tr>
+                                        <th>LIBRAS</th>
+                                        <th>DESCRIPCIÓN</th>
+                                        <th>IMPORTE</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{factura[0].peso}</td>
+                                        <td>{factura[0].tracking}</td>
+                                        <td>{formatCurrency(factura[0].tarifas)}</td>
+                                        <td>{formatCurrency(factura[0].precio)}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+              
                     <div className="py-5">
                         <h3 className="text-start py-5 text-3xl font-bold">Total Factura: {formatCurrency(factura[0].precio)} USD</h3>
                         <p className="font-bold text-sm my-5">CONDICIONES Y FORMA DE PAGO</p>
