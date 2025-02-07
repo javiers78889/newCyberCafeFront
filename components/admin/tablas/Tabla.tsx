@@ -1,5 +1,6 @@
 "use client"
 import { getPaquetes } from "@/actions/get-paquetes-action";
+import { formatCurrency } from "@/src/utils";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
@@ -17,7 +18,7 @@ export default function Tabla() {
   }, [])
 
   useEffect(() => {
-   
+
   }, [state])
 
 
@@ -39,8 +40,8 @@ export default function Tabla() {
               <th scope="col" className="px-6 py-3">Tarifa</th>
               <th scope="col" className="px-6 py-3">Status</th>
               <th scope="col" className="px-6 py-3"></th>
-              
-             
+
+
             </tr>
           </thead>
           <tbody>
@@ -58,18 +59,18 @@ export default function Tabla() {
                     </th>
                     <td className="px-6 py-4">{product.tracking}</td>
                     <td className="px-6 py-4">{product.peso}</td>
-                    <td className="px-6 py-4">{product.precio}</td>
-                    <td className="px-6 py-4">{product.tarifas}</td>
+                    <td className="px-6 py-4">{formatCurrency(product.precio)}</td>
+                    <td className="px-6 py-4">{formatCurrency(product.tarifas)}</td>
                     <td className="px-6 py-4">{product.status}</td>
                     <td className="px-6 py-4 text-right">
-                        <Link
-                          href={`/admin/factura/${product.id}`}
-                          className="font-medium text-yellow-600 dark:text-blue-500 hover:underline"
-                        >
-                          Factura
-                        </Link>
-                      </td>
-                   
+                      <Link
+                        href={`/admin/factura/${product.id}`}
+                        className="font-medium text-yellow-600 dark:text-blue-500 hover:underline"
+                      >
+                        Factura
+                      </Link>
+                    </td>
+
                   </tr>
                 );
               })
