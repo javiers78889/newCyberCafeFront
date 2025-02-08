@@ -22,6 +22,6 @@ export const rastreoPaquetes = (prevState: TTracking, formData: FormData) => {
             errors: errores
         }
     }
-    const url = `https://clientes.japslogistics.com/ConsultaTracking.aspx?cid=1&idGuia="${trackingNumber.data}"`
+    const url = `https://clientes.japslogistics.com/ConsultaTracking.aspx?cid=1&idGuia=${trackingNumber.data}`
     redirect(url)
 }
