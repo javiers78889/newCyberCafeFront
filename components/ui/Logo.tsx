@@ -1,8 +1,15 @@
 import Image from "next/image"
 
-export default function Logo() {
+type Datos = {
+  size: number,
+  red?: boolean
+}
+
+export default function Logo({ size, red }: Datos) {
+
+
   return (
-    <Image src="/fete-blanco.png" alt="Logotipo" width={400} height={123} priority />
-    
+    <Image src={red ? "/fete.png" : "/fete-blanco.png"} alt="Logotipo" width={size ? (size * 2) : 400} height={size ? size : 123} priority />
+
   )
 }
