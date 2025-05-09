@@ -37,7 +37,7 @@ export default function HeaderL() {
                 </nav>
                 <div className="flex items-center gap-4">
                     <MotionFramer>
-                        <Link href="#" className="text-sm  transition-colors hover:text-primary bg-blue-500 hover:bg-blue-600 uppercase rounded-lg px-4 py-2 text-white font-bold">
+                        <Link href="/auth/login" className="text-sm  transition-colors hover:text-primary bg-blue-500 hover:bg-blue-600 uppercase rounded-lg px-4 py-2 text-white font-bold">
                             CyberCafeApp
                         </Link>
                     </MotionFramer>
