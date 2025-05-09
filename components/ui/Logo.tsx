@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 type Datos = {
-  size: number,
+  size?: number,
   red?: boolean
 }
 
