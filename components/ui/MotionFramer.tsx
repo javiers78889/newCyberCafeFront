@@ -14,7 +14,7 @@ export default function MotionFramer({ children, ease }: Data) {
             initial={{ y: -100, opacity: 0, scale: 0 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: easeset }}
-            className=" bg-red-500 flex items-center justify-center  w-full"
+            className="  flex items-center justify-center  w-full"
         >
             {children}
         </motion.header>

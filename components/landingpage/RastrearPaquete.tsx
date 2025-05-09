@@ -1,9 +1,28 @@
+"use client"
 import { Button } from '@headlessui/react'
 import { CheckCircle2 } from 'lucide-react'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import EstadoEjem from './RastreoItems/EstadoEjem'
+import { useFormState } from 'react-dom'
+import { rastreoPaquetes } from '@/actions/rastreo-paquetes-action'
+import { toast } from 'react-toastify'
 
 export default function RastrearPaquete() {
+    const ref = useRef<HTMLFormElement>(null)
+    const [state, dispatch] = useFormState(rastreoPaquetes, {
+        success: '',
+        errors: []
+    })
+
+    useEffect(() => {
+        if (state?.errors) {
+
+            state.errors.map(n => {
+                toast.error(n)
+                console.log(n)
+            })
+        }
+    }, [state])
     return (
         <section className="w-full flex items-center justify-center py-12 md:py-16 lg:py-20 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10">
             <div className="container px-4 md:px-6">
@@ -20,18 +39,19 @@ export default function RastrearPaquete() {
                             </p>
                         </div>
                         <div className="flex flex-col space-y-2">
-                            <div className="flex flex-col sm:flex-row gap-2">
+                            <form action={dispatch} className="flex flex-col sm:flex-row gap-2" ref={ref}>
                                 <div className="flex-1">
                                     <input
                                         type="text"
+                                        name="tracking"
                                         placeholder="Ingresa tu número de tracking"
                                         className="w-full px-4 py-3 text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                                     />
                                 </div>
-                                <Button className="sm:w-auto bg-red-500 px-4 rounded-lg text-white sm: py-4">
+                                <Button className="sm:w-auto bg-red-500 px-4 rounded-lg text-white sm: py-4" type='submit'>
                                     Rastrear Paquete
                                 </Button>
-                            </div>
+                            </form>
                             <p className="text-sm text-muted-foreground">
                                 Soportamos rastreo de Amazon, Shein, AliExpress, eBay, DHL, FedEx, UPS y más.
                             </p>

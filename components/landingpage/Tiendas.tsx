@@ -1,5 +1,3 @@
-import { Button } from '@headlessui/react'
-import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -25,7 +23,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de Amazon"
@@ -37,7 +35,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de Shein"
@@ -49,7 +47,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de AliExpress"
@@ -61,7 +59,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de eBay"
@@ -73,7 +71,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de Walmart"
@@ -85,7 +83,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de Temu"
@@ -99,7 +97,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de Amazon"
@@ -111,7 +109,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de Shein"
@@ -123,7 +121,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de AliExpress"
@@ -135,7 +133,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de eBay"
@@ -147,7 +145,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de Walmart"
@@ -159,7 +157,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src="/placeholder.svg?height=80&width=160"
+                                        src=""
                                         width={160}
                                         height={80}
                                         alt="Logo de Temu"

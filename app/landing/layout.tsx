@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 
 import FooterL from "@/components/landingpage/FooterL";
 import HeaderL from "@/components/landingpage/HeaderL";
-import MotionFramer from "@/components/ui/MotionFramer";
-import MotionFramerx from "@/components/ui/MotionFramerx";
+import { ToastContainer } from "react-toastify";
 
 
 export const metadata: Metadata = {
@@ -19,7 +18,7 @@ export default function LayoutL({
   return (
     <>
       <HeaderL />
-
+      <ToastContainer />
       <main className="flex-1 min-h-screen">
         {children}
       </main>

@@ -1,4 +1,3 @@
-import { Zap } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import Logo from '../ui/Logo'
@@ -10,19 +9,19 @@ export default function FooterL() {
                 <div className="flex items-center gap-2 font-bold">
                     <Logo size={100}/>
                 </div>
-                <nav className="flex gap-4 sm:gap-6 font-bold text-lg text-white">
-                    <Link href="#" className="text-sm hover:underline underline-offset-4">
-                        Terms
+                <nav className="flex gap-4 sm:gap-6 font-bold text-lg text-white ">
+                    <Link href="#" className="text-sm font-bold hover:underline underline-offset-4">
+                        Términos & Condiciones
                     </Link>
-                    <Link href="#" className="text-sm hover:underline underline-offset-4">
-                        Privacy
+                    <Link href="#" className="text-sm font-bold hover:underline underline-offset-4">
+                        Privacidad
                     </Link>
-                    <Link href="#" className="text-sm hover:underline underline-offset-4">
+                    <Link href="#" className="text-sm font-bold hover:underline underline-offset-4">
                         Cookies
                     </Link>
                 </nav>
-                <div className="text-center text-sm text-muted-foreground md:text-left">
-                    &copy; {new Date().getFullYear()} Acme Inc. All rights reserved.
+                <div className="text-center text-sm text-white md:text-left">
+                    &copy; {new Date().getFullYear()} CyberCaféChame . Todos los Derechos Reservados.
                 </div>
             </div>
         </footer>

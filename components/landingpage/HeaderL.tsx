@@ -6,28 +6,28 @@ import MotionFramer from '../ui/MotionFramer'
 
 
 const UrlData = [
-    { name: 'Feature', url: '#features' },
-    { name: 'Testimonials', url: '#testimonials' },
-    { name: 'Pricing', url: '#pricing' },
-    { name: 'FAQ', url: '#faq' },
+    { name: 'Inicio', url: '#features' },
+    { name: 'Rastrear Paquete', url: '#testimonials' },
+    { name: 'Tiendas Recomendadas', url: '#pricing' },
+    { name: 'Nuestro Servicios', url: '#faq' },
 ]
 
 
 export default function HeaderL() {
     return (
-        <header className="sticky bg-red-500 flex items-center justify-center top-0 z-50 w-full border-b ">
+        <header className="sticky bg-red-500 flex items-center justify-center top-0 z-50 w-full  ">
 
             <div className="container flex h-32 items-center justify-between ">
                 <div className="flex items-center gap-2 font-bold">
                     <MotionFramer>
-                        <Logo size={40} />
+                        <Logo size={90} />
                     </MotionFramer>
                 </div>
 
                 <nav className="hidden md:flex gap-6 font-bold text-xl uppercase text-white">
 
                     {UrlData.map((urls) => (
-                        <MotionFramer ease='spring'>
+                        <MotionFramer key={urls.name} ease='spring'>
                             <Link href={urls.url} className="text-sm font-medium transition-colors hover:text-primary">
                                 {urls.name}
                             </Link>

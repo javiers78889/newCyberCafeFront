@@ -7,8 +7,7 @@ type Data = {
     duracion?: number
 }
 export default function MotionFramerx({ children, ease, duracion }: Data) {
-    console.log(ease)
-
+  
     const easeset = ease && 'easeOut'
     const duration = duracion && 0.6
     return (

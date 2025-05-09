@@ -26,12 +26,11 @@ const config: Config = {
 			},
 		  },
   		backgroundImage: {
-  			'auth': "url('/grafico.svg')"
-
+  			'auth': "url('/nn.png')",
   		},
 		
   		backgroundSize: {
-  			'30': '30rem'
+  			'30': '125rem'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
