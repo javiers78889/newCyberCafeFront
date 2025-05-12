@@ -22,7 +22,7 @@ const config: Config = {
       },
       keyframes: {
         marqueeMobile: {
-          '0%': { transform: 'translateX(600%)' },
+          '0%': { transform: 'translateX(700%)' },
           '100%': { transform: 'translateX(-100%)' },
         },
         marqueeDesktop: {
