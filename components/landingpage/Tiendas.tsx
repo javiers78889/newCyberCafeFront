@@ -42,7 +42,7 @@ export default function Tiendas() {
                 </div>
 
                 <div className="relative mt-10 overflow-hidden">
-                    <div className="flex animate-marquee items-center justify-center gap-8 py-4">
+                    <div className="flex lg:animate-marqueeDesktop animate-marqueeMobile items-center justify-center gap-8 py-4">
                         <div className="flex min-w-max flex-nowrap gap-8">
                             {tiendas.map((t) => (
 

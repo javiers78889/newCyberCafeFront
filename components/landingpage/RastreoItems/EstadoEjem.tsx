@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function EstadoEjem() {
     return (
-        <div className="relative mx-auto aspect-video overflow-hidden rounded-xl lg:order-last">
+        <div className="relative mx-auto aspect-video  rounded-xl lg:order-last">
             <div className=" rounded-xl p-6 shadow-lg border">
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">

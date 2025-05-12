@@ -98,7 +98,7 @@ export default function CloudinaryVideoCarousel() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 bg-cover">
+        <div className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 bg-auth bg-30 bg-no-repeat">
             <div className="relative w-full max-w-3xl bg-white rounded-lg shadow-lg overflow-hidden">
                 {/* Botón anterior */}
                 <div className="absolute top-1/2 left-4 z-10 transform -translate-y-1/2">

@@ -17,19 +17,24 @@ const config: Config = {
     },
     extend: {
       animation: {
-        marquee: 'marquee 30s linear infinite',
+        marqueeMobile: 'marqueeMobile 30s linear infinite',
+        marqueeDesktop: 'marqueeDesktop 30s linear infinite',
       },
       keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
+        marqueeMobile: {
+          '0%': { transform: 'translateX(600%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        marqueeDesktop: {
+          '0%': { transform: 'translateX(200%)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
       },
       backgroundImage: {
         'auth': "url('/nn.png')",
       },
       backgroundSize: {
-        '30': '125rem',
+        '30': '85rem',
       },
       borderRadius: {
         lg: 'var(--radius)',
