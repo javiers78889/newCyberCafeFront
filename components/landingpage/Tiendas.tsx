@@ -46,7 +46,7 @@ export default function Tiendas() {
                         <div className="flex min-w-max flex-nowrap gap-8">
                             {tiendas.map((t) => (
 
-                                <a href={t.nombre} key={t.nombre} className="group relative flex flex-col items-center justify-center space-y-2 cursor-pointer">
+                                <a href={t.url} key={t.nombre} className="group relative flex flex-col items-center justify-center space-y-2 cursor-pointer">
                                     <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                         <Image
                                             src={t.src}
