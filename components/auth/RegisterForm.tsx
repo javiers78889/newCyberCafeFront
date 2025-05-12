@@ -24,7 +24,7 @@ export default function RegisterForm() {
       })
     }
     if (state.errors) {
-      state.errors.map(n => {
+      state.errors.forEach(n => {
         toast.error(n)
       })
     }
@@ -61,7 +61,7 @@ export default function RegisterForm() {
           id="correo"
           type="email"
           placeholder="Email de Registro"
-          className="w-full border border-gray-300 p-3 rounded-lg"
+          className="w-full text-black border border-gray-300 p-3 rounded-lg"
           name="correo"
         />
       </div>
@@ -73,7 +73,7 @@ export default function RegisterForm() {
         <input
           type="text"
           placeholder="Su Telefono"
-          className="w-full border border-gray-300 p-3 rounded-lg"
+          className="w-full  text-black border border-gray-300 p-3 rounded-lg"
           name="telefono"
         />
       </div>
@@ -84,7 +84,7 @@ export default function RegisterForm() {
         <input
           type="password"
           placeholder="Password de Registro"
-          className="w-full border border-gray-300 p-3 rounded-lg"
+          className="w-full text-black border border-gray-300 p-3 rounded-lg"
           name="password"
         />
       </div>
@@ -97,7 +97,7 @@ export default function RegisterForm() {
           id="password_confirmation"
           type="password"
           placeholder="Repite Password de Registro"
-          className="w-full border border-gray-300 p-3 rounded-lg"
+          className="w-full text-black border border-gray-300 p-3 rounded-lg"
           name="password_confirmation"
         />
       </div>

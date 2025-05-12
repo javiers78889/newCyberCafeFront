@@ -10,8 +10,8 @@ export default function Admin() {
                 <div className="w-full flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center gap-5">
 
                     <Link className='lg:border-r-2 border-black rounded-lg  px-5 py-2 bg-amber-400' href={'/admin/admin-paquetes'}>
-                        <h1 className="font-black text-4xl  my-5">Mis <span className='text-red-600'>Paquetes</span></h1>
-                        <p className="text-xl font-bold">Observa y Verifica tus {''}
+                        <h1 className="font-black text-4xl text-black  my-5">Mis <span className='text-red-600'>Paquetes</span></h1>
+                        <p className="text-xl font-bold text-blac">Observa y Verifica tus {''}
                             <span className="text-red-600">Paquetes</span>
                         </p>
                     </Link>

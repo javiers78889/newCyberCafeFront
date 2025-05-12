@@ -17,7 +17,7 @@ export default function LoginForm() {
 
     useEffect(() => {
         if (!state.success) {
-            state.error.map(errores => {
+            state.error.forEach(errores => {
 
                return toast.error(errores)
 
@@ -48,7 +48,7 @@ export default function LoginForm() {
                         id="usuario"
                         type="text"
                         placeholder="Ingrese su usuario"
-                        className="w-full border border-gray-300 p-3 rounded-lg"
+                        className="w-full text-black border border-gray-300 p-3 rounded-lg"
                         name="usuario"
                     />
                 </div>
@@ -61,7 +61,7 @@ export default function LoginForm() {
                     <input
                         type="password"
                         placeholder="Password de Registro"
-                        className="w-full border border-gray-300 p-3 rounded-lg"
+                        className="w-full border text-black border-gray-300 p-3 rounded-lg"
                         name="password"
                     />
                 </div>

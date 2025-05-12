@@ -7,7 +7,7 @@ export default async function page() {
 
     return (
         <>
-            <h1 className="font-black text-4xl  my-5 text-center ">Paquetes <span className='text-amber-500'>Creados</span></h1>
+            <h1 className="font-black text-4xl text-black  my-5 text-center ">Paquetes <span className='text-amber-500'>Creados</span></h1>
             <TUser />
 
         </>
