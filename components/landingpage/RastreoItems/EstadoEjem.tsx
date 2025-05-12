@@ -4,14 +4,14 @@ import React from 'react'
 export default function EstadoEjem() {
     return (
         <div className="relative mx-auto aspect-video overflow-hidden rounded-xl lg:order-last">
-            <div className="bg-muted rounded-xl p-6 shadow-lg border">
+            <div className=" rounded-xl p-6 shadow-lg border">
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
                         <div className="space-y-1">
                             <h3 className="text-lg font-medium">Estado del Envío</h3>
                             <p className="text-sm text-muted-foreground">Paquete #TN12345678</p>
                         </div>
-                        <div className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">
+                        <div className="rounded-full  px-3 py-1 text-xs font-medium text-green-800">
                             En Camino
                         </div>
                     </div>
