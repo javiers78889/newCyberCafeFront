@@ -2,11 +2,10 @@
 import { motion } from 'framer-motion'
 
 type Data = {
-    children: React.ReactNode,
-    ease?: string,
+    readonly children: React.ReactNode,
+    readonly ease?: string,
 }
 export default function MotionFramer({ children, ease }: Data) {
-    console.log(ease)
 
     const easeset = ease && 'easeOut'
     return (

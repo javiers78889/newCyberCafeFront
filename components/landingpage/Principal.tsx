@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect, Suspense } from "react"
+import { useState, useRef, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -58,7 +58,7 @@ export default function CloudinaryVideoCarousel() {
             videoElement
                 .play()
                 .then(() => {
-                    setIsPlaying(true)
+                    setIsPlaying(isPlaying!)
                 })
                 .catch((error) => {
                     console.error("Error al reproducir el video:", error)
@@ -137,7 +137,7 @@ export default function CloudinaryVideoCarousel() {
                 </div>
 
                 {/* Contenedor del carrusel */}
-                
+
                 <div className="relative w-full aspect-video">
                     {slides.map((slide, index) => (
                         <div
@@ -170,7 +170,7 @@ export default function CloudinaryVideoCarousel() {
 
             </div>
 
-           
+
         </div>
     )
 }
