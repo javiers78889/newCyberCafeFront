@@ -147,7 +147,7 @@ export default function CloudinaryVideoCarousel() {
                                         playsInline
                                         autoPlay
                                         muted
-                                        controls // <- útil para móviles
+                                       
                                     />
                                 </div>
                             </div>
