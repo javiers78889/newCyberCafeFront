@@ -4,14 +4,12 @@ import { useState, useRef, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-// Definición de tipos para los slides
 type Slide = {
     id: string
     cloudinaryUrl: string
     title: string
 }
 
-// Datos de ejemplo para el carrusel (reemplaza con tus URLs de Cloudinary)
 const slides: Slide[] = [
     {
         id: "1",
@@ -38,65 +36,58 @@ const slides: Slide[] = [
 export default function CloudinaryVideoCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({})
-    const [isPlaying, setIsPlaying] = useState(false)
 
-    // Función para reproducir el video actual
     const playCurrentVideo = () => {
         const currentSlide = slides[currentIndex]
         const videoElement = videoRefs.current[currentSlide.id]
 
         // Pausar todos los videos
         Object.values(videoRefs.current).forEach((video) => {
-            if (video) {
-                video.pause()
-            }
+            if (video) video.pause()
         })
 
         // Reproducir el video actual
         if (videoElement) {
-            videoElement.currentTime = 0
+            try {
+                // Algunos navegadores móviles no permiten cambiar el tiempo
+                videoElement.currentTime = 0
+            } catch (e) {
+                console.warn("No se pudo reiniciar el video:", e)
+            }
             videoElement
                 .play()
-                .then(() => {
-                    setIsPlaying(isPlaying!)
-                })
                 .catch((error) => {
                     console.error("Error al reproducir el video:", error)
-                    // Si falla el autoplay, podemos mostrar un botón para reproducir manualmente
-                    setIsPlaying(false)
                 })
         }
     }
 
-    // Configurar event listeners para los videos cuando cambia el índice
     useEffect(() => {
-        playCurrentVideo()
+        const timer = setTimeout(() => {
+            playCurrentVideo()
+        }, 200)
+
+        return () => clearTimeout(timer)
     }, [currentIndex])
 
-    // Configurar event listeners para los videos cuando se montan
     useEffect(() => {
+        const currentSlide = slides[currentIndex]
+        const videoElement = videoRefs.current[currentSlide.id]
+
         const handleVideoEnd = () => {
             goToNextSlide()
         }
 
-        // Añadir event listeners a todos los videos
-        slides.forEach((slide) => {
-            const videoElement = videoRefs.current[slide.id]
-            if (videoElement) {
-                videoElement.addEventListener("ended", handleVideoEnd)
-            }
-        })
-
-        // Limpiar event listeners cuando el componente se desmonte
-        return () => {
-            slides.forEach((slide) => {
-                const videoElement = videoRefs.current[slide.id]
-                if (videoElement) {
-                    videoElement.removeEventListener("ended", handleVideoEnd)
-                }
-            })
+        if (videoElement) {
+            videoElement.addEventListener("ended", handleVideoEnd)
         }
-    }, [videoRefs.current])
+
+        return () => {
+            if (videoElement) {
+                videoElement.removeEventListener("ended", handleVideoEnd)
+            }
+        }
+    }, [currentIndex])
 
     const goToNextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length)
@@ -107,11 +98,9 @@ export default function CloudinaryVideoCarousel() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center max-xl:p-52   lg:p-12 md:p-8 p-4 lg:bg-auth bg-cover">
-
-
+        <div className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 bg-cover">
             <div className="relative w-full max-w-3xl bg-white rounded-lg shadow-lg overflow-hidden">
-                {/* Controles de navegación */}
+                {/* Botón anterior */}
                 <div className="absolute top-1/2 left-4 z-10 transform -translate-y-1/2">
                     <Button
                         variant="outline"
@@ -124,6 +113,7 @@ export default function CloudinaryVideoCarousel() {
                     </Button>
                 </div>
 
+                {/* Botón siguiente */}
                 <div className="absolute top-1/2 right-4 z-10 transform -translate-y-1/2">
                     <Button
                         variant="outline"
@@ -136,8 +126,7 @@ export default function CloudinaryVideoCarousel() {
                     </Button>
                 </div>
 
-                {/* Contenedor del carrusel */}
-
+                {/* Carrusel */}
                 <div className="relative w-full aspect-video">
                     {slides.map((slide, index) => (
                         <div
@@ -146,12 +135,11 @@ export default function CloudinaryVideoCarousel() {
                                 }`}
                         >
                             <div className="w-full h-full flex flex-col">
-
                                 <div className="w-full flex-1 bg-black">
                                     <video
                                         ref={(el) => {
                                             if (el) {
-                                                videoRefs.current[slide.id] = el;
+                                                videoRefs.current[slide.id] = el
                                             }
                                         }}
                                         className="w-full h-full object-contain"
@@ -159,18 +147,14 @@ export default function CloudinaryVideoCarousel() {
                                         playsInline
                                         autoPlay
                                         muted
-
+                                        controls // <- útil para móviles
                                     />
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-
-
             </div>
-
-
         </div>
     )
 }
