@@ -107,7 +107,7 @@ export default function CloudinaryVideoCarousel() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center  lg:p-12 md:p-8 p-4 lg:bg-auth bg-cover">
+        <div className="flex flex-col items-center justify-center xl:p-20  lg:p-12 md:p-8 p-4 lg:bg-auth bg-cover">
 
 
             <div className="relative w-full max-w-3xl bg-white rounded-lg shadow-lg overflow-hidden">
