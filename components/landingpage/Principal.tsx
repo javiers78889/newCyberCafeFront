@@ -1,80 +1,176 @@
 "use client"
 
-import { MessageCircle } from 'lucide-react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel'
-import MotionFramerx from '../ui/MotionFramerx';
-import { useState } from 'react';
-const videos = [
-    { id: 1, url: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746737178/WhatsApp_Video_2025-05-08_at_3.22.35_PM_d9upg4.mp4" },
-    { id: 2, url: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812213/WhatsApp_Video_2025-05-09_at_8.10.17_AM_1_jzqwwd.mp4" },
-    { id: 3, url: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812246/WhatsApp_Video_2025-05-09_at_8.10.20_AM_f2i3dd.mp4" },
-    { id: 4, url: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812263/WhatsApp_Video_2025-05-09_at_8.10.18_AM_1_fqak6a.mp4" },
-    { id: 5, url: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812353/WhatsApp_Video_2025-05-09_at_8.10.18_AM_f50evs.mp4" },
+import { useState, useRef, useEffect, Suspense } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+// Definición de tipos para los slides
+type Slide = {
+    id: string
+    cloudinaryUrl: string
+    title: string
+}
+
+// Datos de ejemplo para el carrusel (reemplaza con tus URLs de Cloudinary)
+const slides: Slide[] = [
+    {
+        id: "1",
+        cloudinaryUrl: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746737178/WhatsApp_Video_2025-05-08_at_3.22.35_PM_d9upg4.mp4",
+        title: "Tortuga Marina",
+    },
+    {
+        id: "2",
+        cloudinaryUrl: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812246/WhatsApp_Video_2025-05-09_at_8.10.20_AM_f2i3dd.mp4",
+        title: "Elefantes",
+    },
+    {
+        id: "3",
+        cloudinaryUrl: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812263/WhatsApp_Video_2025-05-09_at_8.10.18_AM_1_fqak6a.mp4",
+        title: "Paisaje",
+    },
+    {
+        id: "4",
+        cloudinaryUrl: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812353/WhatsApp_Video_2025-05-09_at_8.10.18_AM_f50evs.mp4",
+        title: "Paisaje",
+    },
 ]
 
-export default function Principal() {
+export default function CloudinaryVideoCarousel() {
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({})
+    const [isPlaying, setIsPlaying] = useState(false)
 
-    const [visible, setVisible] = useState(false)
-    const handleVideoEnd = () => {
+    // Función para reproducir el video actual
+    const playCurrentVideo = () => {
+        const currentSlide = slides[currentIndex]
+        const videoElement = videoRefs.current[currentSlide.id]
 
-    };
+        // Pausar todos los videos
+        Object.values(videoRefs.current).forEach((video) => {
+            if (video) {
+                video.pause()
+            }
+        })
 
-    const MakeVisible = () => {
-
-        console.log('visible')
-        setVisible(!visible)
+        // Reproducir el video actual
+        if (videoElement) {
+            videoElement.currentTime = 0
+            videoElement
+                .play()
+                .then(() => {
+                    setIsPlaying(true)
+                })
+                .catch((error) => {
+                    console.error("Error al reproducir el video:", error)
+                    // Si falla el autoplay, podemos mostrar un botón para reproducir manualmente
+                    setIsPlaying(false)
+                })
+        }
     }
+
+    // Configurar event listeners para los videos cuando cambia el índice
+    useEffect(() => {
+        playCurrentVideo()
+    }, [currentIndex])
+
+    // Configurar event listeners para los videos cuando se montan
+    useEffect(() => {
+        const handleVideoEnd = () => {
+            goToNextSlide()
+        }
+
+        // Añadir event listeners a todos los videos
+        slides.forEach((slide) => {
+            const videoElement = videoRefs.current[slide.id]
+            if (videoElement) {
+                videoElement.addEventListener("ended", handleVideoEnd)
+            }
+        })
+
+        // Limpiar event listeners cuando el componente se desmonte
+        return () => {
+            slides.forEach((slide) => {
+                const videoElement = videoRefs.current[slide.id]
+                if (videoElement) {
+                    videoElement.removeEventListener("ended", handleVideoEnd)
+                }
+            })
+        }
+    }, [videoRefs.current])
+
+    const goToNextSlide = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length)
+    }
+
+    const goToPrevSlide = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length)
+    }
+
     return (
-        <div className="w-full py-8 lg:py-28 md:py-20 bg-auth bg-no-repeat bg-left-top bg-30 ">
-            <div className="container px-4 md:px-6 ">
+        <div className="flex flex-col items-center justify-center  lg:p-12 md:p-8 p-4 lg:bg-auth bg-cover">
 
-                <MotionFramerx>
-                    <Carousel className="w-full max-w-5xl mx-auto">
-                        <CarouselContent>
-                            {videos.map(video => (
 
-                                <CarouselItem key={video.id}>
-                                    <div className="p-1">
-                                        <div className="overflow-hidden rounded-xl border bg-background">
-                                            <div className="relative aspect-video">
-                                                <video
-
-                                                    autoPlay
-                                                    onEnded={handleVideoEnd}
-                                                    className="h-full w-full object-cover"
-
-                                                >
-                                                    <source src={video.url} type="video/mp4" />
-                                                    Tu navegador no soporta videos HTML5.
-                                                </video>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </CarouselItem>
-                            ))}
-
-                        </CarouselContent>
-                        <div>
-                            <CarouselNext />
-                            <CarouselPrevious />
-                        </div>
-                    </Carousel>
-                </MotionFramerx>
-
-                <div className={`fixed  left-6 w-full`} >
-                    <div className={` flex items-center bg-green-500 hover:bg-green-700  rounded-full w-fit px-4 py-4 cursor-pointer`} onMouseEnter={MakeVisible} onMouseLeave={MakeVisible}>
-                        <MessageCircle className='text-white font-black' />
-
-                    </div>
-                    {visible ? (
-                        <h2 className='font-bold'>Whatsapp</h2>
-
-                    ) : ''}
+            <div className="relative w-full max-w-3xl bg-white rounded-lg shadow-lg overflow-hidden">
+                {/* Controles de navegación */}
+                <div className="absolute top-1/2 left-4 z-10 transform -translate-y-1/2">
+                    <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full bg-white/80 hover:bg-white"
+                        onClick={goToPrevSlide}
+                    >
+                        <ChevronLeft className="h-6 w-6" />
+                        <span className="sr-only">Anterior</span>
+                    </Button>
                 </div>
 
-            </div>
-        </div>
+                <div className="absolute top-1/2 right-4 z-10 transform -translate-y-1/2">
+                    <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full bg-white/80 hover:bg-white"
+                        onClick={goToNextSlide}
+                    >
+                        <ChevronRight className="h-6 w-6" />
+                        <span className="sr-only">Siguiente</span>
+                    </Button>
+                </div>
 
+                {/* Contenedor del carrusel */}
+                
+                <div className="relative w-full aspect-video">
+                    {slides.map((slide, index) => (
+                        <div
+                            key={slide.id}
+                            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${index === currentIndex ? "opacity-100 z-20" : "opacity-0 z-10"
+                                }`}
+                        >
+                            <div className="w-full h-full flex flex-col">
+
+                                <div className="w-full flex-1 bg-black">
+                                    <video
+                                        ref={(el) => {
+                                            if (el) {
+                                                videoRefs.current[slide.id] = el;
+                                            }
+                                        }}
+                                        className="w-full h-full object-contain"
+                                        src={slide.cloudinaryUrl}
+                                        playsInline
+                                        autoPlay
+                                        muted
+
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+
+            </div>
+
+           
+        </div>
     )
 }
