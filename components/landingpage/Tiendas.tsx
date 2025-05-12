@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
+
 export default function Tiendas() {
     return (
         <section className="w-full flex items-center justify-center py-12 md:py-16 lg:py-20 border-y bg-background">
@@ -23,7 +24,7 @@ export default function Tiendas() {
                             <div className="group relative flex flex-col items-center justify-center space-y-2">
                                 <div className="overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-all duration-200 hover:shadow-md">
                                     <Image
-                                        src=""
+                                        src="/amazon.png"
                                         width={160}
                                         height={80}
                                         alt="Logo de Amazon"
@@ -173,7 +174,7 @@ export default function Tiendas() {
                     <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent"></div>
                 </div>
 
-             
+
             </div>
         </section>
     )
