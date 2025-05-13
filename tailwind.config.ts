@@ -17,8 +17,8 @@ const config: Config = {
     },
     extend: {
       animation: {
-        marqueeMobile: 'marqueeMobile 30s linear infinite',
-        marqueeDesktop: 'marqueeDesktop 30s linear infinite',
+        marqueeMobile: 'marqueeMobile 35s linear infinite',
+        marqueeDesktop: 'marqueeDesktop 35s linear infinite',
       },
       keyframes: {
         marqueeMobile: {
