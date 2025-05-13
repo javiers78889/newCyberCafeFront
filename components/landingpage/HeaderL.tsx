@@ -6,10 +6,10 @@ import MotionFramer from '../ui/MotionFramer'
 
 
 const UrlData = [
-    { name: 'Inicio', url: '#features' },
-    { name: 'Rastrear Paquete', url: '#testimonials' },
-    { name: 'Tiendas Recomendadas', url: '#pricing' },
-    { name: 'Nuestro Servicios', url: '#faq' },
+    { name: 'Inicio', url: '#inicio' },
+    { name: 'Rastrear Paquete', url: '#rastreo' },
+    { name: 'Tiendas Recomendadas', url: '#tiendas' },
+    { name: 'Nuestro Servicios', url: '#servicios' },
 ]
 
 

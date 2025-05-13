@@ -19,7 +19,7 @@ export default function RootLayout({
       <body
         className={outfit.className}
       >
-        <div className="">
+        <div id="inicio" className="">
 
           {children}
         </div>
