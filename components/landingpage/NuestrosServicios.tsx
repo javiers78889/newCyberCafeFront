@@ -27,7 +27,7 @@ export default function NuestrosServicios() {
                     </div>
                 </div>
                 <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3">
-                    {services.map((services, index) => (
+                    {services.map((services) => (
                         <Card key={services.id}>
                             <CardHeader>
                                 <Globe className="h-10 w-10 text-primary" />
