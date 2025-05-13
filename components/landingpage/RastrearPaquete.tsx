@@ -45,7 +45,7 @@ export default function RastrearPaquete() {
                                         type="text"
                                         name="tracking"
                                         placeholder="Ingresa tu número de tracking"
-                                        className="w-full px-4 py-3 text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                                        className="w-full px-4 text-black py-3 text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                                     />
                                 </div>
                                 <Button className="sm:w-auto bg-red-500 px-4 rounded-lg text-white sm: py-4" type='submit'>

@@ -8,6 +8,9 @@ import { MessageCircle } from 'lucide-react'
 export const metadata: Metadata = {
   title: "CyberCafeChame - Home",
   description: "CyberCafeChame",
+   icons:{
+    icon: '/newcyberr.png'
+  }
 };
 
 export default function LayoutL({
