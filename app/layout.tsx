@@ -7,6 +7,9 @@ const outfit = google({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: "CyberCafeChame - Home",
   description: "CyberCafeChame",
+  icons:{
+    icon: '/newcyberr.png'
+  }
 };
 
 export default function RootLayout({
