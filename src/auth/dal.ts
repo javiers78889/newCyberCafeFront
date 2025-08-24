@@ -21,6 +21,7 @@ export const verifySession = cache(async () => {
     })
 
     const session = await req.json()
+    console.log(session)
 
     const result = UserSchema.safeParse(session)
     console.log(result.error)

@@ -26,7 +26,7 @@ export const LoginSchema = z.object({
 export const UserSchema = z.object({
     id: z.number(),
     nombre: z.string(),
-    correo: z.string().email().optional().nullable()
+    correo: z.string()
 })
 
 export type User = z.infer<typeof UserSchema>
