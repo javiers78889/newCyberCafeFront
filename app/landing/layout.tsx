@@ -5,13 +5,18 @@ import HeaderL from "@/components/landingpage/HeaderL";
 import { ToastContainer } from "react-toastify";
 import { MessageCircle } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: "CyberCafeChame - Home",
-  description: "CyberCafeChame",
-   icons:{
-    icon: '/newcyberr.png'
+export const metadata:Metadata = {
+  title: "AshBranding&Import",
+  description: "CRM",
+  icons: {
+    icon: [
+      { url: '/fete.png', sizes: '32x32', type: 'image/png' },
+      { url: '/fete.png', sizes: '16x16', type: 'image/png' }
+    ],
+    apple: '/fete.png'
   }
-};
+
+}
 
 export default function LayoutL({
   children,

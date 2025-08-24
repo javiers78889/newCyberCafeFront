@@ -3,11 +3,18 @@ import LoginForm from "@/components/auth/LoginForm"
 import type { Metadata } from 'next'
 import Link from "next/link"
 
-export const metadata: Metadata = {
-    title: 'CyberCafe - Iniciar Sesión',
-    description: 'CyberCafe - Iniciar Sesión'
-}
+export const metadata = {
+  title: "AshBranding&Import - INICIAR SESION",
+  description: "INICIAR SERSION",
+   icons: {
+    icon: [
+      { url: '/fete.png', sizes: '32x32', type: 'image/png' },
+      { url: '/fete.png', sizes: '16x16', type: 'image/png' }
+    ],
+    apple: '/fete.png'
+  }
 
+}
 export default function page() {
 
 

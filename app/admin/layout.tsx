@@ -4,9 +4,17 @@ import ToasterNotification from "@/components/ui/ToasterNotification";
 import { verifySession } from "@/src/auth/dal";
 import { Metadata } from "next";
 import Link from "next/link";
-export const metadata: Metadata = {
-  title: 'CyberCafe - Admin',
-  description: 'CyberCafe - Admin'
+export const metadata:Metadata = {
+  title: "AshBranding&Import",
+  description: "CRM",
+  icons: {
+    icon: [
+      { url: '/fete.png', sizes: '32x32', type: 'image/png' },
+      { url: '/fete.png', sizes: '16x16', type: 'image/png' }
+    ],
+    apple: '/fete.png'
+  }
+
 }
 export default async function AdminLayout({
   children,
