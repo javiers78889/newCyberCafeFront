@@ -13,7 +13,7 @@ type Slide = {
 const slides: Slide[] = [
     {
         id: "1",
-        cloudinaryUrl: "http://69.62.68.105:3002/images/1756053902067-810430008-Black-and-Orange-Minimalist-Logistics-Company-Video.mp4",
+        cloudinaryUrl: "/vid.mp4",
         title: "Tortuga Marina",
     }
 ]
