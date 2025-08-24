@@ -2,26 +2,26 @@ import Image from 'next/image'
 import React from 'react'
 
 const tiendas = [
-  { nombre: "Amazon", url: "https://www.amazon.com/-/es/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068231/Amazon_ghcicm.webp" },
-  { nombre: "Shein", url: "https://us.shein.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068228/Shein_iirptu.jpg" },
-  { nombre: "eBay", url: "https://www.ebay.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068235/eBay_lwrdru.png" },
-  { nombre: "Walmart", url: "https://www.walmart.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068230/walmart_pdef5n.png" },
-  { nombre: "Temu", url: "https://www.temu.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068231/Temu_s562pb.png" },
-  { nombre: "Etsy", url: "https://www.etsy.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068236/etsy_f10qq2.png" },
-  { nombre: "Wish", url: "https://www.wish.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068231/wish_jw9wrc.png" },
-  { nombre: "Nike", url: "https://www.nike.com", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068240/nike_c4guky.png" },
-  { nombre: "Sephora", url: "https://www.sephora.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068228/sephora_qrwoyp.webp" },
-  { nombre: "Target", url: "https://www.target.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068229/target_yvoywl.png" },
-  { nombre: "Macy's", url: "https://www.macys.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068238/macys_ebcwcy.jpg" },
-  { nombre: "Victoria's Secret", url: "https://www.victoriassecret.com/us/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068230/Victoria-Secret_f7uu1i.png" },
-  { nombre: "Coach", url: "https://www.coach.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068234/coach_abqexv.jpg" },
-  { nombre: "Carter's", url: "https://www.carters.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068233/carters_cjyzz4.png" },
-  { nombre: "Bath & Body Works", url: "https://www.bathandbodyworks.com", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068234/BathBodyWorks_pdqtjr.jpg" },
-  { nombre: "6pm", url: "https://www.6pm.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068231/6pm_rwhyna.png" },
-  { nombre: "Romwe", url: "https://us.romwe.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068228/romwe_idqrix.jpg" },
-  { nombre: "American Eagle", url: "https://www.ae.com/us/en", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068232/americanEagle_jqdkhd.jpg" },
-  { nombre: "Bershka", url: "https://www.bershka.com/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068233/bershka_rgumyg.png" },
-  { nombre: "Pull&Bear", url: "https://www.pullandbear.com/us/", src: "https://res.cloudinary.com/dga0uaurm/image/upload/v1747068242/pullAndBeer_nfn6tc.jpg" }
+  { nombre: "Amazon", url: "https://www.amazon.com/-/es/", src: "/amazon.png" },
+  { nombre: "Shein", url: "https://us.shein.com/", src: "/shein.png" },
+  { nombre: "eBay", url: "https://www.ebay.com/", src: "/ebay.svg" },
+  { nombre: "Walmart", url: "https://www.walmart.com/", src: "/walmart.png" },
+  { nombre: "Temu", url: "https://www.temu.com/", src: "/temu.webp" },
+  { nombre: "Etsy", url: "https://www.etsy.com/", src: "/etsy.svg" },
+  { nombre: "Wish", url: "https://www.wish.com/", src: "/wish.png" },
+  { nombre: "Nike", url: "https://www.nike.com", src: "/nike.png" },
+  { nombre: "Sephora", url: "https://www.sephora.com/", src: "/sephora.png" },
+  { nombre: "Target", url: "https://www.target.com/", src: "/target.png" },
+  { nombre: "Macy's", url: "https://www.macys.com/", src: "/macys.png" },
+  { nombre: "Victoria's Secret", url: "https://www.victoriassecret.com/us/", src: "/victoria.png" },
+  { nombre: "Coach", url: "https://www.coach.com/", src: "/coach.png" },
+  { nombre: "Carter's", url: "https://www.carters.com/", src: "/carter.svg" },
+  { nombre: "Bath & Body Works", url: "https://www.bathandbodyworks.com", src: "/bath.png" },
+  { nombre: "6pm", url: "https://www.6pm.com/", src: "/6pm.png" },
+  { nombre: "Romwe", url: "https://us.romwe.com/", src: "/romwe.png" },
+  { nombre: "American Eagle", url: "https://www.ae.com/us/en", src: "/american.svg" },
+  { nombre: "Bershka", url: "https://www.bershka.com/", src: "/bersh.svg" },
+  { nombre: "Pull&Bear", url: "https://www.pullandbear.com/us/", src: "/pull.png" }
 ];
 
 

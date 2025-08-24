@@ -20,7 +20,7 @@ export default function HeaderL() {
             <div className="container flex h-32 items-center justify-between ">
                 <div className="flex items-center gap-2 font-bold">
                     <MotionFramer>
-                        <Logo size={90} />
+                        <Logo size={70} />
                     </MotionFramer>
                 </div>
 
@@ -38,7 +38,7 @@ export default function HeaderL() {
                 <div className="flex items-center gap-4">
                     <MotionFramer>
                         <Link href="/auth/login" className="text-sm  transition-colors hover:text-primary bg-blue-500 hover:bg-blue-600 uppercase rounded-lg px-4 py-2 text-white font-bold">
-                            CyberCafeApp
+                            Area de Paquetes
                         </Link>
                     </MotionFramer>
                 </div>

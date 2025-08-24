@@ -13,24 +13,9 @@ type Slide = {
 const slides: Slide[] = [
     {
         id: "1",
-        cloudinaryUrl: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746737178/WhatsApp_Video_2025-05-08_at_3.22.35_PM_d9upg4.mp4",
+        cloudinaryUrl: "http://69.62.68.105:3002/images/1756053902067-810430008-Black-and-Orange-Minimalist-Logistics-Company-Video.mp4",
         title: "Tortuga Marina",
-    },
-    {
-        id: "2",
-        cloudinaryUrl: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812246/WhatsApp_Video_2025-05-09_at_8.10.20_AM_f2i3dd.mp4",
-        title: "Elefantes",
-    },
-    {
-        id: "3",
-        cloudinaryUrl: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812263/WhatsApp_Video_2025-05-09_at_8.10.18_AM_1_fqak6a.mp4",
-        title: "Paisaje",
-    },
-    {
-        id: "4",
-        cloudinaryUrl: "https://res.cloudinary.com/dkcwi8gob/video/upload/v1746812353/WhatsApp_Video_2025-05-09_at_8.10.18_AM_f50evs.mp4",
-        title: "Paisaje",
-    },
+    }
 ]
 
 export default function CloudinaryVideoCarousel() {
