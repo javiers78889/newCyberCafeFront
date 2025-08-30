@@ -60,7 +60,7 @@ export const createPaquetes = async (prevstate: PaquetesType, formData: FormData
 Hola ${datos.usuario}, somos AshBranding&Imports.
 Has recibido un nuevo paquete.
 Tracking: ${datos.tracking}
-Peso: ${datos.peso} kg
+Peso: ${datos.peso} lb
 Costo: $${precio}
 `;
 
