@@ -1,11 +1,13 @@
+"use client"
 import React from 'react'
 import Logo from '@/components/ui/Logo'
 import Link from 'next/link'
 import RegisterPaquetes from '@/components/paquetes/RegisterPaquetes'
+import Provider from '@/src/Provider/Provider'
 
 export default function Admin() {
     return (
-        <>
+        <Provider>
             <div className='w-full flex md:w-auto flex-col text-center justify-center'>
                 <div className="w-full flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center gap-5">
 
@@ -36,7 +38,7 @@ export default function Admin() {
             </div>
 
 
-        </>
+        </Provider>
 
 
 

@@ -24,6 +24,7 @@ export default async function AdminLayout({
   const { user } = await verifySession()
   return (
     <>
+    
       <header className='bg-red-600 py-5'>
         <div className='max-w-5xl mx-auto flex flex-col lg:flex-row justify-between items-center'>
           <div className='w-96'>
@@ -35,6 +36,7 @@ export default async function AdminLayout({
           <AdminMenu user={user} />
         </div>
       </header>
+      
       <section className='min-h-screen max-w-5xl mx-auto mt-20 p-3 py-10'>
         {children}
       </section>

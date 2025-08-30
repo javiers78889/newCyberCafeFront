@@ -18,6 +18,8 @@ export const getUsers = async (): Promise<TUser> => {
     })
 
     const json = await req.json()
+
+    console.log(json)
   
     if (!req.ok) {
         return {
