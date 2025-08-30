@@ -3,7 +3,7 @@
 import { Outfit as google } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
-import Provider from "@/src/Provider/Provider";
+
 
 const outfit = google({ subsets: ["latin"] });
 
